@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>VuDeck - Analog Vu Meter, LED Spectrum</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="../../assets/img/favicon.png" rel="icon">
+  <link href="../../assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="../../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../../assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="../../assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="../../assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="../../assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Main CSS File -->
+  <link href="../../assets/css/main.css" rel="stylesheet">
+
+</head>
+
+<body class="index-page d-flex flex-column min-vh-100">
+
+  <header id="header" class="header dark-background d-flex flex-column">
+    <i class="header-toggle d-xl-none bi bi-list"></i>
+
+    <div class="profile-img">
+      <img src="../../assets/img/my-profile-img.jpg" alt="VuDeck Logo" class="img-fluid rounded-circle">
+    </div>
+
+    <a href="../../index.html" class="logo d-flex align-items-center justify-content-center">
+      <span class="sitename">VuDeck</span>
+    </a>
+  
+    <nav id="navmenu" class="navmenu">
+      <ul>
+        <li class="dropdown"><a href="indexhelp.html"><i class="bi bi-list-check navicon"></i> <span>Getting Started</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+            <ul>
+                <li><a href="systemrequirements.html">System Requirements</a></li>
+                <li><a href="installationguide.html">Installation Guide</a></li>
+                <li><a href="firstrun.html">First Run</a></li>
+            </ul>
+        </li>
+        <li class="dropdown"><a href="configuration.html"><i class="bi bi-gear navicon"></i> <span>Configuration</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+            <ul>
+                <li><a href="generalsettings.html">General Settings</a></li>
+                <li><a href="audiosettings.html">Audio Settings</a></li>
+                <li><a href="troubleshooting.html">Troubleshooting </a></li>
+            </ul>
+        </li>
+        <li><a href="feedbackandsupport.html"><i class="bi bi-envelope navicon"></i> Feedback <br>and Support</a></li>
+        <li class="dropdown"><a href="enduserlicense.html"><i class="bi bi-card-text navicon"></i> <span>End User License <br>Agreement (EULA)</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+          <ul>
+            <li><a href="termsofuse.html">Terms of Use</a></li>
+            <li><a href="acknowledgements.html">Acknowledgements</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+
+  </header>
+
+  <main class="main">
+    <!-- Utils Section -->
+    <section id="Privacy" class="features section">
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+        <!-- Content -->
+        <h1>Troubleshooting</h1>
+        <p class=""><span class=""><br/></span></p>
+        <p class=""><span class="">Any time you make changes to your system's audio settings, you also need to update VuDeck’s audio settings accordingly. Otherwise, your application may stop working.</span></p>
+        <p class=""><span class="">You can always return to the setup to make the necessary changes.</span></p>
+        <p class=""><span class="">On macOS, bringing VuDeck and your system’s audio settings into alignment can be confusing, especially if you’re not familiar with the inner workings of Mac Audio.</span></p>
+        <p class=""><span class="">Whenever you make changes to your system’s audio settings, depending on VuDeck's current state, you may receive an error message if you run VuDeck after the system change, or a warning if VuDeck was still running at the time of the change. The nature of the error message can vary based on the device you’re using (e.g., third-party virtual audio loop-back device or VuDeck’s pass-through virtual audio device).</span></p>
+        <p class=""><span class=""><br/></span></p>
+        <p class=""><img alt="" style="padding : 1px;" src="lib/Screenshot%202025-02-02%20at%2031244PM.png"></p>
+        <p class=""><span class=""><br/></span></p>
+        <p class=""><span class="">In the case of using a third-party virtual audio loop-back device like BlackHole or Rogue Amoeba Loopback, if you delete the device or change the input or output device in your system's settings, VuDeck will stop working.</span></p>
+        <p class=""><span class="">If you switch to another loop-back device in your system settings, go to </span><span class="rvts14">Settings</span><span class="rvts6"> → </span><span class="rvts14">Audio Settings</span><span class="rvts6"> from the panel, or select </span><span class="rvts14">Audio Settings</span><span class="rvts6"> directly from the top menu bar, and choose the new active device from the drop-down list.</span></p>
+        <p class=""><span class="">Sometimes, when you make changes to your system's audio setup, VuDeck might not detect the change and may continue running until the next restart, or it could stop running immediately. Even after changing the device in VuDeck’s audio settings, VuDeck may still fail to detect the change. In this case, closing and restarting VuDeck may solve the issue.</span></p>
+        <p class=""><span class="">If you're using a third-party virtual audio device, follow the steps below to fix your audio setup if needed. You can also refer to the website of the specific virtual audio loop-back device you're using for further assistance.</span></p>
+        <p class=""><span class=""><br/></span></p>
+        <ol style="text-indent: 0px; padding: 0; margin: 0 0 0 24px; list-style-position: outside;">
+            <li class="noindent"><span class="fw-bold">Open System Settings -&gt; Go to System Settings and select Sound. </span><span>Ensure that Virtual Audio Device is installed. Then, select either Multi-Output Device or Virtual Audio Device as the output device and Virtual Audio Device (BlackHole, Rogue etc.) in the input devices list.</span></li>
+        </ol><br>
+        <ol style="text-indent: 0px; padding: 0; margin: 0 0 0 24px; list-style-position: outside;">
+            <li value="2" class="noindent"><span class="fw-bold">Open Audio Midi Setup</span><span>, you can use Spotlight command+space and type Audio Midi Setup, click on the Audio Midi Setup app to open it.</span></li>
+        </ol><br>
+        <ol style="text-indent: 0px; padding: 0; margin: 0 0 0 24px; list-style-position: outside;">
+            <li value="3" class="rvps2 noindent"><span class="fw-bold">Open Audio Devices Window</span><span></span>, If the Audio Devices window doesn’t appear automatically, go to the Window menu in Audio MIDI Setup top toolbar and select Audio Devices.</span></li>
+        </ol><br>
+        <ol style="text-indent: 0px; padding: 0; margin: 0 0 0 24px; list-style-position: outside;">
+            <li value="4" class="rvps2 noindent"><span class="">Create Multi-Output Device, In the lower-left corner of the Audio Devices window, click the + icon and choose Create Multi-Output Device.</span></li>
+        </ol><br>
+        <ol style="text-indent: 0px; padding: 0; margin: 0 0 0 24px; list-style-position: outside;">
+            <li value="5" class="rvps2 noindent"><span class="">Select Output Devices, For the new Multi-Output Device, choose the audio devices you want to use for output audio. It's recommended to enable Drift Correction for all devices except the Clock Source.</span></li>
+        </ol><br>
+        <ol style="text-indent: 0px; padding: 0; margin: 0 0 0 24px; list-style-position: outside;">
+            <li value="6" class="rvps2 noindent"><span class="">Set Audio Output to Multi-Output Device, Right-click the new Multi-Output Device and select Use This Device For Sound Output. Audio should now play through both your speakers and the Virtual Audio Device.</span></li>
+        </ol><br>
+        <ol style="text-indent: 0px; padding: 0; margin: 0 0 0 24px; list-style-position: outside;">
+            <li value="7" class="rvps2 noindent"><span class="fw-bold">Open Audio Settings in VuDeck Settings Window</span><span>, Ensure that the same loop-back device you set in System Settings is also chosen as the Virtual Audio Loop-back Device in the Audio Settings window.</span></li>
+        </ol>
+        <p class=""><span class=""><br/></span></p>
+        <p class=""><span class="">If the virtual audio loopback device is no longer available on your system, or if you need to switch to another aggregate device, follow the steps below and reset VuDeck to the app's process-based audio setup.</span></p><br>
+        <ol style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside;">
+         <li style="display : none" class="noindent"></li>
+        </ol>
+        <ol style="text-indent: 0px; padding: 0; margin: 0 0 0 24px; list-style-position: outside;">
+         <li class="noindent"><span class="">Go to </span><span class="fw-bold">Settings</span><span class="fw-bold"> → </span><span class="fw-bold">Audio Settings</span><span class="">, either from the panel or directly from the top menu bar (</span><span class="fw-bold">VuDeck</span><span class="fw-bold"> → </span><span class="fw-bold">Audio Settings</span><span class="">).</span></li><br>
+         <li class="noindent"><span class="">If there is a Multi-Output Device, you can select and use it. VuDeck will automatically assign the VuDeck Pass-Through Device to the selected device. Alternatively, you can create a </span><span class="">VuDeck Output Device</span><span class=""> and use it as a dedicated device for VuDeck. If no output device has been created previously, the </span><span class="">VuDeck Output Device</span><span class=""> will be automatically created. You need at least one output device created to run the process-based VuDeck setup.</span></li><br>
+         <li class="noindent"><span class="">Make sure to select audio sources from the left pane. Any active app, such as a browser with YouTube open or a music app, will appear.</span></li><br>
+         <li class="noindent"><span class="">Click the </span><span class="">Save &amp; Close</span><span class=""> button. If there are no errors, VuDeck will be ready to use.</span></li>
+        </ol>
+        <p class=""><span class=""><br/></span></p>
+        <p class=""><img alt="" style="width : 618px; height : 385px; padding : 1px;" src="lib/Screenshot%202025-02-02%20at%20105508AM%202.png"></p>
+        <p class=""><span class=""><br/></span></p>
+        <p class=""><span class="">If you choose to use a Multi-Output Device, make sure to also assign a physical output device, such as headphones or speakers, if you want to hear the audio.</span></p>
+        <p class=""><span class=""><br/></span></p>
+      </div>
+    </section>
+
+    <section class="features section">
+      <div class="container">
+        <a class="btn btn-outline-primary" href="audiosettings.html" role="button"><i class="bi bi-caret-left"></i><span>Previous</span></a>
+        <a class="btn btn-outline-primary" href="feedbackandsupport.html" role="button"><span>Next</span><i class="bi bi-caret-right"></i></a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer id="footer" class="footer position-relative light-background mt-auto">
+
+    <div class="container">
+      <div class="copyright text-center ">
+        <p>© <span>Copyright</span> <strong class="px-1 sitename">VuDeck</strong> <span>All Rights Reserved</span></p>
+      </div>
+      <div class="credits">
+     </div>
+    </div>
+
+  </footer>
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Preloader -->
+  <div id="preloader"></div>
+
+  <!-- Vendor JS Files -->
+  <script src="../../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="../../assets/vendor/php-email-form/validate.js"></script>
+  <script src="../../assets/vendor/aos/aos.js"></script>
+  <script src="../../assets/vendor/typed.js/typed.umd.js"></script>
+  <script src="../../assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="../../assets/vendor/waypoints/noframework.waypoints.js"></script>
+  <script src="../../assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="../../assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+  <script src="../../assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="../../assets/vendor/swiper/swiper-bundle.min.js"></script>
+
+  <!-- Main JS File -->
+  <script src="../../assets/js/main.js"></script>
+
+</body>
+
+</html>
