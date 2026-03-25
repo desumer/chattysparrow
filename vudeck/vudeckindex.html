@@ -55,7 +55,7 @@
           </ul>
         </li>
         <li><a href="#contact"><i class="bi bi-envelope navicon"></i> Contact</a></li>
-        <li class="dropdown"><a href="about.html"><i class="bi bi-menu-button navicon"></i> <span>About</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+        <li class="dropdown"><a href="../about.html"><i class="bi bi-menu-button navicon"></i> <span>About</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
           <ul>
             <li><a href="../company.html">Company</a></li>
             <li><a href="../privacy.html">Privacy Policy</a></li>
@@ -247,7 +247,7 @@
               <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="400">
                 <i class="bi bi-envelope flex-shrink-0"></i>
                 <div>
-                  <p class="mt-3"><a href="&#109;a&#105;l&#116;&#111;:&#115;&#117;&#112;&#112;&#111;&#114;&#116;&#64;&#118;&#117;&#100;&#101;&#99;&#107;&#46;&#99;&#111;&#109;">Email Us</a></p>
+                  <p class="mt-3"><a href="#" id="email-link">&nbsp;&nbsp;Email Us</a></p>
                 </div>
               </div><!-- End Info Item -->
             </div>
@@ -293,6 +293,14 @@
 
   <!-- Main JS File -->
   <script src="../assets/js/main.js"></script>
+  <script>
+    document.getElementById('email-link').addEventListener('click', function(e) {
+      e.preventDefault();
+      const user = 'support';
+      const domain = 'chattysparrow.com';
+      window.location.href = 'mailto:' + user + '@' + domain;
+    });
+  </script>
 
 </body>
 
