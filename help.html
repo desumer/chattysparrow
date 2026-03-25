@@ -36,29 +36,36 @@
   <header id="header" class="header dark-background d-flex flex-column">
     <i class="header-toggle d-xl-none bi bi-list"></i>
 
-    <div class="profile-img">
-      <img src="assets/img/my-profile-img.jpg" alt="VuDeck Logo" class="img-fluid rounded-circle">
-    </div>
+    <div class="header-top">
+      <div class="profile-img">
+        <img src="assets/img/logo-graphic.png" alt="Chatty Sparrow Logo" class="img-fluid rounded-circle">
+      </div>
 
-    <a href="index.html" class="logo d-flex align-items-center justify-content-center">
-      <span class="sitename">VuDeck</span>
-    </a>
+      <a href="index.html" class="logo d-flex align-items-center justify-content-center">
+        <span class="sitename">Chatty Sparrow</span>
+      </a>
+    </div>
   
     <nav id="navmenu" class="navmenu">
       <ul>
         <li><a href="index.html#hero" class="active"><i class="bi bi-house navicon"></i>Home</a></li>
-        <li><a href="index.html#portfolio"><i class="bi bi-app navicon"></i> App</a></li>
+        <li class="dropdown"><a href="#"><i class="bi bi-info-lg navicon"></i> <span>Apps</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+          <ul>
+            <li><a href="vudeck/vudeckindex.html">VuDeck</a></li>
+            <li><a href="#">Audio Gate</a></li>
+          </ul>
+        </li>
         <li class="dropdown"><a href="help.html"><i class="bi bi-info-lg navicon"></i> <span>Help</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
           <ul>
-            <li><a href="help/Mac/indexhelp.html">Mac OS</a></li>
-            <li><a href="help/Windows/indexhelp.html">Windows</a></li>
+            <li><a href="vudeck/help.html">VuDeck</a></li>
+            <li><a href="#">Audio Gate</a></li>
           </ul>
         </li>
         <li><a href="index.html#contact"><i class="bi bi-envelope navicon"></i> Contact</a></li>
         <li class="dropdown"><a href="about.html"><i class="bi bi-menu-button navicon"></i> <span>About</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
           <ul>
-            <li><a href="vudeckcompany.html">Company</a></li>
-            <li><a href="vudeckprivacy.html">Privacy Policy</a></li>
+            <li><a href="company.html">Company</a></li>
+            <li><a href="privacy.html">Privacy Policy</a></li>
           </ul>
         </li>
       </ul>
@@ -75,9 +82,9 @@
         <h2>Help</h2>
         <br>
         <div class="container">
-          <p><a href="help/Mac/indexhelp.html"><span>Mac OS</span></a></p>
+          <p><a href="vudeck/help.html"><span>VuDeck</span></a></p>
           <br>
-          <p><a href="help/Windows/indexhelp.html"><span>Windows</span></a></p>
+          <p><a href="#"><span>Audio Gate</span></a></p>
         </div>
       </div><!-- End Section Title -->
 
@@ -90,7 +97,7 @@
 
     <div class="container">
       <div class="copyright text-center ">
-        <p>© <span>Copyright</span> <strong class="px-1 sitename">VuDeck</strong> <span>All Rights Reserved</span></p>
+        <p>© <span>Copyright</span> <strong class="px-1 sitename">chattysparrow.com</strong> <span>All Rights Reserved</span></p>
       </div>
       <div class="credits">
      </div>

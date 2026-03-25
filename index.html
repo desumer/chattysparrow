@@ -49,16 +49,16 @@
     <nav id="navmenu" class="navmenu">
       <ul>
         <li><a href="#hero" class="active"><i class="bi bi-house navicon"></i>Home</a></li>
-        <li class="dropdown"><a href="apps.html"><i class="bi bi-info-lg navicon"></i> <span>Apps</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+        <li class="dropdown"><a href="#"><i class="bi bi-info-lg navicon"></i> <span>Apps</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
           <ul>
-            <li><a href="vudeck/vudeckindex.html">Vu Deck</a></li>
+            <li><a href="vudeck/vudeckindex.html">VuDeck</a></li>
             <li><a href="#">Audio Gate</a></li>
           </ul>
         </li>
         <li class="dropdown"><a href="help.html"><i class="bi bi-info-lg navicon"></i> <span>Help</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
           <ul>
-            <li><a href="help/Mac/indexhelp.html">Mac OS</a></li>
-            <li><a href="help/Windows/indexhelp.html">Windows</a></li>
+            <li><a href="vudeck/help.html">VuDeck</a></li>
+            <li><a href="#">Audio Gate</a></li>
           </ul>
         </li>
         <li><a href="#contact"><i class="bi bi-envelope navicon"></i> Contact</a></li>
@@ -80,8 +80,8 @@
 
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
-        <h2>Portfolio</h2>
-        <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+        <h2>Applications</h2>
+        <p>🎵 Bring Your Audio to Life.</p>
       </div><!-- End Section Title -->
 
       <div class="container" data-aos="fade-up" data-aos-delay="100">
@@ -97,12 +97,12 @@
                   <div class="portfolio-overlay">
                     <div class="portfolio-actions">
                       <a href="assets/img/portfolio-1.webp" class="glightbox action-btn preview-btn" title="Elemental Branding"><i class="bi bi-eye"></i></a>
-                      <a href="portfolio-details.html" class="action-btn details-btn" title="View Project"><i class="bi bi-arrow-up-right"></i></a>
+                      <a href="vudeck/vudeckindex.html" class="action-btn details-btn" title="View Project"><i class="bi bi-arrow-up-right"></i></a>
                     </div>
                   </div>
                 </div>
                 <div class="portfolio-content">
-                  <h3 class="portfolio-title">Vu Deck</h3>
+                  <h3 class="portfolio-title">VuDeck</h3>
                   <p class="portfolio-description">Enjoy your music with Real-Time Vu Meter & Spectrum Display (Spectrum only available for Windows).</p>
                   <p class="mt-4">Available at...</p>
                   <div class="d-flex mt-2 justify-content-center justify-content-md-start">
@@ -120,7 +120,7 @@
                   <div class="portfolio-overlay">
                     <div class="portfolio-actions">
                       <a href="assets/img/portfolio-2.webp" class="glightbox action-btn preview-btn" title="Digital Workspace"><i class="bi bi-eye"></i></a>
-                      <a href="portfolio-details.html" class="action-btn details-btn" title="View Project"><i class="bi bi-arrow-up-right"></i></a>
+                      <a href="#" class="action-btn details-btn" title="View Project"><i class="bi bi-arrow-up-right"></i></a>
                     </div>
                   </div>
                 </div>
@@ -162,7 +162,7 @@
               <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="400">
                 <i class="bi bi-envelope flex-shrink-0"></i>
                 <div>
-                  <p class="mt-3"><a href="&#109;a&#105;l&#116;&#111;:&#115;&#117;&#112;&#112;&#111;&#114;&#116;&#64;&#118;&#117;&#100;&#101;&#99;&#107;&#46;&#99;&#111;&#109;">Email Us</a></p>
+                 <a href="#" id="email-link">&nbsp;&nbsp;Email Us</a>
                 </div>
               </div><!-- End Info Item -->
             </div>
@@ -180,7 +180,7 @@
 
     <div class="container">
       <div class="copyright text-center ">
-        <p>© <span>Copyright</span> <strong class="px-1 sitename">VuDeck</strong> <span>All Rights Reserved</span></p>
+        <p>© <span>Copyright</span> <strong class="px-1 sitename">chattysparrow.com</strong> <span>All Rights Reserved</span></p>
       </div>
       <div class="credits">
      </div>
@@ -208,6 +208,14 @@
 
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
+  <script>
+    document.getElementById('email-link').addEventListener('click', function(e) {
+      e.preventDefault();
+      const user = 'support';
+      const domain = 'chattysparrow.com';
+      window.location.href = 'mailto:' + user + '@' + domain;
+    });
+  </script>
 
 </body>
 
