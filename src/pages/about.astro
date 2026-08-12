@@ -1,0 +1,35 @@
+---
+import MainLayout from "@layouts/MainLayout.astro";
+import Header from "@components/Header.astro";
+import Footer from "@components/Footer.astro";
+import { withBase } from '@utils/paths';
+---
+
+<MainLayout title="Chatty Sparrow - About">
+
+<Header />
+
+<main>
+
+    <section id="about" class="about section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>About</h2>
+        <br>
+        <div class="container">
+          <p><a href={withBase("/company")}><span>Company</span></a></p>
+          <br>
+          <p><a href={withBase("/privacy")}><span>Privacy Policy</span></a></p>
+          <br>
+          <p><a href={withBase("/eula")}><span>End User License Agreement (EULA)</span></a></p>
+        </div>
+      </div><!-- End Section Title -->
+
+    </section>
+
+</main>
+
+<Footer />
+
+</MainLayout>

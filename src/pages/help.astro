@@ -1,0 +1,37 @@
+---
+import MainLayout from "@layouts/MainLayout.astro";
+import Header from "@components/Header.astro";
+import Footer from "@components/Footer.astro";
+import { withBase } from '@utils/paths';
+---
+
+
+
+<MainLayout title="Chatty Sparrow - Help">
+
+<Header />
+
+<main>
+
+    <section id="about" class="about section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Help</h2>
+        <br>
+        <div class="container">
+          <p><a href={withBase("/vudeck/help")}><span>VU Deck</span></a></p>
+          <br>
+          <p><a href={withBase("/audiogate/help")}><span>Audio Gate</span></a></p>
+          <br>
+          <p><a href={withBase("/audiorouter/help")}><span>Audio Router</span></a></p>
+        </div>
+      </div><!-- End Section Title -->
+
+    </section>
+
+</main>
+
+<Footer />
+
+</MainLayout>

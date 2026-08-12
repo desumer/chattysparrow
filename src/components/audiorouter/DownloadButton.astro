@@ -1,0 +1,78 @@
+---
+import { latestRelease } from '@data/releases';
+import { site } from '@data/site';
+import { withBase } from '@utils/paths';
+
+interface Props {
+  variant?: 'primary' | 'secondary';
+}
+
+const { variant = 'primary' } = Astro.props;
+---
+
+<div class="d-flex flex-column download-button">
+  <div class="d-flex mt-2 justify-content-center justify-content-md-start">
+    <a  aria-disabled="true" class={`download-btn ${variant === 'primary' ? 'primary' : ''}`} href="#" data-download-url={withBase(site.downloadUrl)}>
+      <i class="bi bi-download"></i>
+      Download {site.name}
+      <span>v{latestRelease.version}</span>
+    </a>
+  </div>
+  <div class="fw-light fs-6"><span data-platform-note hidden>Audio Router is available for macOS only.</span></div>
+</div>
+
+<style>
+  .download-btn.is-disabled {
+    cursor: not-allowed;
+    opacity: 0.64;
+  }
+</style>
+
+<script is:inline>
+  (() => {
+    const isMacOS = () => {
+      const platform =
+        navigator.userAgentData?.platform ||
+        navigator.platform ||
+        '';
+      const userAgent = navigator.userAgent || '';
+      const normalizedPlatform = platform.toLowerCase();
+      const normalizedUserAgent = userAgent.toLowerCase();
+      const isTouchMac = normalizedPlatform.includes('mac') && navigator.maxTouchPoints > 1;
+
+      return !isTouchMac && (
+        normalizedPlatform.includes('mac') ||
+        normalizedUserAgent.includes('mac os x')
+      );
+    };
+
+    const macOS = isMacOS();
+
+    document.querySelectorAll('[data-download-url]').forEach((button) => {
+      if (!(button instanceof HTMLAnchorElement)) {
+        return;
+      }
+
+      if (macOS) {
+        button.href = button.dataset.downloadUrl || '';
+        button.removeAttribute('aria-disabled');
+        button.classList.remove('is-disabled');
+        return;
+      }
+
+      button.href = '#';
+      button.classList.add('is-disabled');
+      button.setAttribute('aria-disabled', 'true');
+      button.addEventListener('click', (event) => {
+        event.preventDefault();
+        event.stopPropagation();
+      });
+    });
+
+    document.querySelectorAll('[data-platform-note]').forEach((note) => {
+      if (note instanceof HTMLElement) {
+        note.hidden = macOS;
+      }
+    });
+  })();
+</script>

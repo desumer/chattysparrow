@@ -1,0 +1,37 @@
+---
+import MainLayout from "@layouts/MainLayout.astro";
+import Header from "@components/Header.astro";
+import Footer from "@components/Footer.astro";
+import { withBase } from '@utils/paths';
+---
+
+<MainLayout title="Chatty Sparrow - 404 Not Found">
+
+<Header />
+
+<main>
+
+    <section id="section" class="min-vh-100 d-flex flex-column align-items-center justify-content-center">
+        <div class="container sub-container">
+          <div class="row justify-content-center">
+            <div class="col-lg-4 col-md-6 d-flex flex-column align-items-center justify-content-center">
+              <div class="card mb-3 w-100">
+                <div class="card-body">
+                  <div class="pt-4 pb-2">
+                    <h5 class="card-title alert alert-danger text-center fs-4">Oops. The page you were looking could not be found! (404)</h5>
+                  </div>
+                  <p class="text-center mt-3">
+                    <img src={withBase("/src/assets/img/hipster_en.png")} class="img-fluid" alt="404 men">
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+</main>
+
+<Footer />
+
+</MainLayout>

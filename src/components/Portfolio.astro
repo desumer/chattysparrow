@@ -1,0 +1,97 @@
+---
+import DownloadButton from '../components/audiorouter/DownloadButton.astro';
+import { withBase } from '@utils/paths';
+---
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="portfolio section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Applications</h2>
+        <p>🎵 Bring Your Audio to Life.</p>
+      </div><!-- End Section Title -->
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="isotope-layout" data-default-filter="*" data-layout="masonry" data-sort="original-order">
+
+          <div class="row gy-5 portfolio-container isotope-container" data-aos="fade-up" data-aos-delay="300">
+
+            <div class="col-lg-6 portfolio-item isotope-item filter-active">
+              <div class="portfolio-card">
+                <div class="portfolio-image">
+                  <img src={withBase("/src/assets/img/portfolio-1.webp")} class="img-fluid" alt="VuDeck App" loading="lazy">
+                  <div class="portfolio-overlay">
+                    <div class="portfolio-actions">
+                      <a href={withBase("/src/assets/img/portfolio-1.webp")} class="glightbox action-btn preview-btn" title=""><i class="bi bi-eye"></i></a>
+                      <a href={withBase("/vudeck")} class="action-btn details-btn" title="View App"><i class="bi bi-arrow-up-right"></i></a>
+                    </div>
+                  </div>
+                </div>
+                <div class="portfolio-content">
+                  <h3 class="portfolio-title">VuDeck</h3>
+                  <p class="portfolio-description">Enjoy your music with Real-Time Vu Meter & Spectrum Display (Spectrum only available for Windows).</p>
+                  <p class="mt-4">Available at...</p>
+                  <div class="d-flex mt-2 justify-content-center justify-content-md-start">
+                    <a href={withBase("https://apps.microsoft.com/detail/9PJB09RCT8C6")} class="download-btn"><i class="bi bi-microsoft"></i> <span>App Store</span></a>
+                    <a href={withBase("https://apps.apple.com/us/app/vudeck/id6742258277")} class="download-btn"><i class="bi bi-apple"></i> <span>App Store</span></a>
+                  </div>
+                </div>
+              </div>
+            </div><!-- End Portfolio Item -->
+
+            <div class="col-lg-6 portfolio-item isotope-item filter-active">
+              <div class="portfolio-card">
+                <div class="portfolio-image">
+                  <img src={withBase("/src/assets/img/portfolio-2.webp")} class="img-fluid" alt="Audio Gate App" loading="lazy">
+                  <div class="portfolio-overlay">
+                    <div class="portfolio-actions">
+                      <a href={withBase("/src/assets/img/portfolio-2.webp")} class="glightbox action-btn preview-btn" title=""><i class="bi bi-eye"></i></a>
+                      <a href={withBase("/audiogate")} class="action-btn details-btn" title="View App"><i class="bi bi-arrow-up-right"></i></a>
+                    </div>
+                  </div>
+                </div>
+                <div class="portfolio-content">
+                  <h3 class="portfolio-title">Audio Gate</h3>
+                  <p class="portfolio-description">Recording application designed for easily capture and record macOS audio.</p>
+                  <p class="mt-4">Coming soon...</p>
+                  <div class="d-flex mt-2 justify-content-center justify-content-md-start">
+                    <a href={withBase("https://apps.apple.com/us/app/audiogate/id6742258278")} class="download-btn"><i class="bi bi-apple"></i> <span>App Store</span></a>
+                  </div>
+                </div>
+              </div>
+            </div><!-- End Portfolio Item -->
+
+            <div class="col-lg-6 portfolio-item isotope-item filter-active">
+            <br><br>
+            </div>
+            
+            <div class="col-lg-6 portfolio-item isotope-item filter-active">
+              <div class="portfolio-card">
+                <div class="portfolio-image">
+                  <img src={withBase("/src/assets/img/portfolio-4.webp")} class="img-fluid" alt="Audio Router App" loading="lazy">
+                  <div class="portfolio-overlay">
+                    <div class="portfolio-actions">
+                      <a href={withBase("/src/assets/img/portfolio-4.webp")} class="glightbox action-btn preview-btn" title=""><i class="bi bi-eye"></i></a>
+                      <a href={withBase("/audiorouter")} class="action-btn details-btn" title="View App"><i class="bi bi-arrow-up-right"></i></a>
+                    </div>
+                  </div>
+                </div>
+                <div class="portfolio-content">
+                  <h3 class="portfolio-title">Audio Router</h3>
+                  <p class="portfolio-description">Routing application designed for easily capture and route macOS audio.</p>
+                  <div class="d-flex mt-2 justify-content-center justify-content-md-start">
+                    <DownloadButton />
+                  </div>
+                </div>
+              </div>
+            </div><!-- End Portfolio Item -->
+
+          </div><!-- End Portfolio Container -->
+
+        </div>
+
+      </div>
+
+    </section><!-- /Portfolio Section -->

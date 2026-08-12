@@ -1,0 +1,46 @@
+---
+import AppsLayout from "@layouts/AppsLayout.astro";
+import Header from "@components/vudeck/Header.astro";
+import Footer from "@components/Footer.astro";
+import { withBase } from '@utils/paths';
+---
+
+<AppsLayout title="Chatty Sparrow - Company Info" faviconPath={withBase("/favicons/vudeck")}>
+
+<Header />
+
+<main>
+
+    <section id="about" class="about section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Company</h2>
+        <p>Well, not a company yet!!!</p>
+      </div><!-- End Section Title -->
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="row gy-4 justify-content-center">
+          <div class="col-lg-4">
+            <img src={withBase("/src/assets/img/profile.jpg")} class="img-fluid" alt="">
+          </div>
+          <div class="col-lg-8 content">
+            <h2>C, C#, SwiftUI &amp; Web Developer.</h2>
+            <p class="py-3">
+              I'm just an indie developer. I worked with corporations in the past as a developer, then life happened, and I took a break from software development. Lately, I’ve rediscovered my passion for both software development and listening to music.            </p>
+            <p class="py-3">
+              I’m a big fan of analog equipment. However, with the digital age of streaming, I just wanted to emulate the feeling of analog equipment. That’s the idea behind developing VuDeck.
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+
+</main>
+
+<Footer />
+
+</AppsLayout>

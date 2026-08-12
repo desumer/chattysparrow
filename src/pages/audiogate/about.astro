@@ -1,0 +1,35 @@
+---
+import AppsLayout from "@layouts/AppsLayout.astro";
+import Header from "@components/audiogate/Header.astro";
+import Footer from "@components/Footer.astro";
+import { withBase } from '@utils/paths';
+---
+
+<AppsLayout title="Chatty Sparrow - About" faviconPath={withBase("/favicons/audiogate")}>
+
+<Header />
+
+<main>
+
+    <section id="about" class="about section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>About</h2>
+        <br>
+        <div class="container">
+          <p><a href={withBase("/audiogate/company")}><span>Company</span></a></p>
+          <br>
+          <p><a href={withBase("/audiogate/privacy")}><span>Privacy Policy</span></a></p>
+          <br>
+          <p><a href={withBase("/audiogate/eula")}><span>End User License Agreement (EULA)</span></a></p>
+        </div>
+      </div><!-- End Section Title -->
+
+    </section>
+
+</main>
+
+<Footer />
+
+</AppsLayout>

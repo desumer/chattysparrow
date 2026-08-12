@@ -1,0 +1,300 @@
+---
+import AppsLayout from "@layouts/AppsLayout.astro";
+import Header from "@components/audiogate/Header.astro";
+import Footer from "@components/Footer.astro";
+import { withBase } from '@utils/paths';
+---
+
+<AppsLayout title="Audio Gate - User Guide" faviconPath={withBase("/favicons/audiogate")}>
+
+  <style>
+.shell{--ink:#18324a;--blue:#087ff5;--teal:#19b7b0;--muted:#5f6b76;--paper:#fff;--line:#dbe3ea;--soft:#edf5fc;--warn:#fff4e5;--danger:#fdecec;--shadow:0 16px 42px rgba(25,48,69,.12)}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:1.5rem}body{margin:0;background:#eef2f5;color:#1f2933;font:16px/1.58 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}a{color:var(--blue)}
+.shell{display:grid;grid-template-columns:290px minmax(0,920px);justify-content:center;gap:28px;width:100%;max-width:none;margin:0;padding:28px}.index{position:sticky;top:24px;align-self:start;background:var(--ink);color:#fff;border-radius:16px;padding:22px;max-height:calc(100vh - 48px);overflow:auto}.index h1{font-size:1.28rem;margin:0 0 4px}.index .platform{color:#76ded7;font-weight:750;font-size:.82rem;text-transform:uppercase;letter-spacing:.07em}.index p{color:#c9d6df;font-size:.88rem;margin:.5rem 0 1rem}.index nav{display:grid;gap:5px}.index a{display:grid;grid-template-columns:29px 1fr;gap:8px;align-items:start;color:#edf6ff;text-decoration:none;padding:9px;border-radius:9px;font-size:.87rem}.index a:hover,.index a:focus{background:#294d69;outline:none}.index a span{display:grid;place-items:center;width:24px;height:24px;border-radius:50%;background:var(--blue);font-weight:750}.index .email{display:block;margin-top:14px;color:#b9e7ff;font-size:.85rem}
+.shell > main{display:grid;gap:28px}.guide-page{scroll-margin-top:24px;color:#1f2933;background:var(--paper);min-height:calc(100vh - 56px);padding:58px 64px;border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow);position:relative;overflow:visible}.page-label{position:absolute;top:20px;right:28px;color:var(--muted);font-size:.76rem;font-weight:750;text-transform:uppercase;letter-spacing:.08em}.guide-page>h1:first-of-type{font-size:2.5rem}.help-guide-cover{display:block;text-align:center;padding-top:5vh}.help-guide-cover .kicker{color:var(--teal);font-weight:800;letter-spacing:.07em;text-transform:uppercase}.help-guide-cover h1{font-size:3rem;line-height:1.06;color:var(--ink);margin:.2em 0}.help-guide-cover .lead{font-size:1.15rem;color:var(--muted);max-width:720px;margin:1.4rem auto}.topic-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:2rem}.topic-grid a{border:1px solid var(--line);border-radius:9px;padding:12px;text-decoration:none;color:var(--ink);display:grid}.topic-grid a:hover{border-color:var(--blue);background:#f7fbff}.topic-grid small{color:var(--muted)}
+h1{font-size:2.6rem;line-height:1.08;color:var(--ink);margin:.25em 0 .6em}h2,h3{font-size:1.65rem;line-height:1.2;color:var(--blue);margin:0 0 .8rem}h4{color:var(--ink)}p{margin:.6em 0}ul,ol{padding-left:1.45rem}li{padding:.15rem 0}.guide-page p>strong:first-child,.guide-page .fw-bold{color:var(--ink)}.guide-page img{display:block;max-width:100%;height:auto!important;margin:1.4rem auto;border-radius:9px;box-shadow:0 10px 24px rgba(0,0,0,.14)}.guide-page p:has(>img){margin:0}.callout{padding:14px 16px;border-radius:8px;background:var(--soft);border-left:4px solid var(--blue);margin:1.1rem 0}.callout.warning{background:var(--warn);border-color:#ff9500}.callout.danger{background:var(--danger);border-color:#b42318}.back{display:inline-block;margin-top:1.5rem;font-size:.82rem;color:var(--muted)}code{background:#f1f4f6;border-radius:4px;padding:.1em .35em}.sr-only{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+@media(max-width:920px){.shell{display:block;padding:12px}.index{position:relative;top:auto;max-height:none;margin-bottom:16px}.index nav{grid-template-columns:1fr 1fr}.guide-page{min-height:0;padding:50px 28px}}
+@media(max-width:580px){.index nav,.topic-grid{grid-template-columns:1fr}.guide-page{padding:48px 18px}.help-guide-cover h1{font-size:2.35rem}h1{font-size:2.1rem}}
+@media print{body{background:#fff}.shell{display:block;max-width:none;padding:0}.index{display:none}.shell > main{display:block}.guide-page{box-shadow:none;border:0;border-radius:0;min-height:auto;break-after:page;padding:.6in}.guide-page:last-child{break-after:auto}.back{display:none}}
+</style>
+
+<Header />
+
+  <div class="shell" id="top">
+    <aside class="index">
+      <div class="platform">macOS help</div>
+      <h1>Audio Gate Recorder</h1>
+      <p>Jump to any topic...</p>
+      <nav aria-label="Section index">
+        <a href="#overview"><span>1</span>Overview</a>
+        <a href="#get-started"><span>2</span>Get Started with Audio Gate Recorder</a>
+        <a href="#recordings-sidebar"><span>3</span>Use the Recordings Sidebar</a>
+        <a href="#routing-workspace"><span>4</span>Work in the Routing Workspace</a>
+        <a href="#audio-sources"><span>5</span>Add and Remove Audio Sources</a>
+        <a href="#recording-controls"><span>6</span>Start, Pause, and Manage Recordings</a>
+        <a href="#levels-and-mute"><span>7</span>Adjust Levels and Mute Sources</a>
+        <a href="#recording-settings"><span>8</span>Choose Recording Settings</a>
+        <a href="#free-mode"><span>9</span>Learn About Free Mode</a>
+        <a href="#tips"><span>10</span>Tips for Best Results</a>
+        <a href="#troubleshooting"><span>11</span>Troubleshoot Audio Gate Recorder</a>
+        <a href="#support"><span>12</span>Get Help and Support</a>
+      </nav>
+      <a class="email" href="#" id="email-link">Contact support</a>
+    </aside>
+    <main>
+      <section class="guide-page help-guide-cover" id="overview" data-page="1" aria-labelledby="overview-label">
+        <div class="page-label" id="overview-label">Section 1 of 12</div>
+        <p class="kicker">Product help / macOS</p>
+        <h1>Audio Gate Recorder</h1>
+        <p class="lead">Thank you for choosing Audio Gate Recorder! We’re excited to help you bring your audio together. Capture and mix application sources, microphones, and audio interfaces in a flexible recording workspace designed to make your recording workflow simple and intuitive.</p>
+        <nav class="topic-grid" aria-label="Topic index">
+          <a href="#get-started">
+            <b>Get Started with Audio Gate Recorder</b>
+            <small>Open section 2</small>
+          </a>
+          <a href="#recordings-sidebar">
+            <b>Use the Recordings Sidebar</b>
+            <small>Open section 3</small>
+          </a>
+          <a href="#routing-workspace">
+            <b>Work in the Routing Workspace</b>
+            <small>Open section 4</small>
+          </a>
+          <a href="#audio-sources">
+            <b>Add and Remove Audio Sources</b>
+            <small>Open section 5</small>
+          </a>
+          <a href="#recording-controls">
+            <b>Start, Pause, and Manage Recordings</b>
+            <small>Open section 6</small>
+          </a>
+          <a href="#levels-and-mute">
+            <b>Adjust Levels and Mute Sources</b>
+            <small>Open section 7</small>
+          </a>
+          <a href="#recording-settings">
+            <b>Choose Recording Settings</b>
+            <small>Open section 8</small>
+          </a>
+          <a href="#free-mode">
+            <b>Learn About Free Mode</b>
+            <small>Open section 9</small>
+          </a>
+          <a href="#tips">
+            <b>Tips for Best Results</b>
+            <small>Open section 10</small>
+          </a>
+          <a href="#troubleshooting">
+            <b>Troubleshoot Audio Gate Recorder</b>
+            <small>Open section 11</small>
+          </a>
+          <a href="#support">
+            <b>Get Help and Support</b>
+            <small>Open section 12</small>
+          </a>
+        </nav>
+      </section>
+
+      <section class="guide-page" id="get-started" data-page="2" aria-labelledby="get-started-label">
+        <div class="page-label" id="get-started-label">Section 2 of 12</div>
+
+        <div>
+        <h2>Get Started with Audio Gate Recorder</h2>
+        <div>
+            <h3 class="fs-5">Installation</h3>
+            <p><span>To install the application, click the "Get" button in the macOS App Store app, then click again to install. Once the installation is complete, click the "Open" button to launch the app.</span></p>
+            <p><span>Later, you can run the application by going to Launchpad or by navigating to the Applications folder in the Finder.</span></p>
+        </div>
+
+        <div>
+            <h3 class="fs-5">Creating Your First Recording</h3>
+        <p>Audio Gate Recorder is designed to help you build a custom recording setup using one or more audio sources.</p>
+        <p>The main window includes the Recordings Sidebar, Routing Workspace, and Toolbar.</p>
+        <ul>
+        <li>The Recordings Sidebar shows saved recordings.</li>
+        <li>The Routing Workspace lets you add sources and adjust the gain.</li>
+        <li>The Toolbar includes recording controls, an elapsed timer, and source management buttons.</li>
+        </ul>
+
+        <p>Basic workflow:</p>
+        <ul>
+        <li>Add one or more audio sources.</li>
+        <li>Confirm the input sources appear in the routing workspace.</li>
+        <li>Adjust gain or mute settings if needed.</li>
+        <li>Choose your recording settings.</li>
+        <li>Start recording.</li>
+        <li>Playback the finished recording in the sidebar.</li>
+        </ul>
+        </div>
+        </div>
+      <a class="back" href="#top">Back to index ↑</a></section><section class="guide-page" id="recordings-sidebar" data-page="3" aria-labelledby="recordings-sidebar-label"><div class="page-label" id="recordings-sidebar-label">Section 3 of 12</div>
+        <div>
+        <h2>Use the Recordings Sidebar</h2>
+        <p>The Recordings Sidebar displays the recordings created by Audio Gate Recorder.</p>
+        <p>Each item in the sidebar includes useful information and playback controls so you can review your files without leaving the app.</p>
+        <ul>
+        <li>Click a recording to select it.</li>
+        <li>Use the playback control to play or pause a recording.</li>
+        <li>Reveal a recording in Finder to open its location on disk.</li>
+        <li>Delete a recording when you no longer need it.</li>
+        </ul>
+        <p>Each recording may show details such as the date it was created and its file size.</p>
+        </div>
+      <a class="back" href="#top">Back to index ↑</a></section><section class="guide-page" id="routing-workspace" data-page="4" aria-labelledby="routing-workspace-label"><div class="page-label" id="routing-workspace-label">Section 4 of 12</div>
+        <div>
+        <h2>Work in the Routing Workspace</h2>
+        <p>The Routing Workspace is where you build your recording setup.</p>
+        <p>Audio sources appear as visual nodes and automatically connect to the main mix for recording.</p>
+        <p>Sources may include:</p>
+        <ul>
+        <li>System audio (Includes all app audio)</li>
+        <li>Physical input devices</li>
+        <li>Virtual audio devices</li>
+        </ul>
+        <p>Connections show the flow of audio from each source to the main mix.</p>
+        <p>The main mix is the final output that is recorded. Any source routed into the main mix becomes part of the recording.</p>
+        <p>Every node provides additional controls, such as gain and mute. Which opens up as a pop-up panel when clicked on any input nodes.</p>
+        <p>System Audio input node also includes "Active Apps" toggle-dropdown that you can enable/disable active audio source apps at any given time.</p>
+        </div>
+      <a class="back" href="#top">Back to index ↑</a></section><section class="guide-page" id="audio-sources" data-page="5" aria-labelledby="audio-sources-label"><div class="page-label" id="audio-sources-label">Section 5 of 12</div>
+        <div>
+        <h2>Add and Remove Audio Sources</h2>
+        <p>Use the toolbar to add or remove audio sources from the routing workspace.</p>
+        <p>Add a "System Audio" input source to capture sound coming from your Mac, such as browsers, media playback, and other app audio. It automatically enables supported apps audio unless disabled under Active Apps toggle-dropdown.</p>
+        <p>Add a physical input source such as a microphone or audio interface input.</p>
+        <p>Remove a source when it is no longer needed in the current routing setup.</p>
+        <p>Removing a source from the workspace does not uninstall or disconnect the actual device from your Mac.</p>
+        </div>
+      <a class="back" href="#top">Back to index ↑</a></section><section class="guide-page" id="recording-controls" data-page="6" aria-labelledby="recording-controls-label"><div class="page-label" id="recording-controls-label">Section 6 of 12</div>
+        <div>
+        <h2>Start, Pause, and Manage Recordings</h2>
+        <p>The toolbar includes the main controls for recording.</p>
+        <ul>
+        <li>Start recording to capture the current main mix.</li>
+        <li>Pause recording to temporarily stop the session without ending it.</li>
+        <li>Resume a paused recording to continue the same session.</li>
+        <li>Use the elapsed timer to monitor session length.</li>
+        </ul>
+        <p>After recording stops, the file appears in the Recordings Sidebar, where it can be selected, played, revealed in Finder, or deleted.</p>
+        </div>
+      <a class="back" href="#top">Back to index ↑</a></section><section class="guide-page" id="levels-and-mute" data-page="7" aria-labelledby="levels-and-mute-label"><div class="page-label" id="levels-and-mute-label">Section 7 of 12</div>
+        <div>
+        <h2>Adjust Levels and Mute Sources</h2>
+        <p>Audio Gate Recorder provides controls for balancing your mix before and during recording.</p>
+        <ul>
+        <li>Adjust source gain to balance microphones, system audio, and other inputs. To change a source's gain, click the desired input node.</li>
+        <li>Adjust the main mix level separately from individual source levels.</li>
+        <li>Mute a source without removing it from the routing setup.</li>
+        </ul>
+        <p>These controls help you build a clear and balanced recording mix.</p>
+        </div>
+      <a class="back" href="#top">Back to index ↑</a></section><section class="guide-page" id="recording-settings" data-page="8" aria-labelledby="recording-settings-label"><div class="page-label" id="recording-settings-label">Section 8 of 12</div>
+        <div>
+        <h2>Choose Recording Settings</h2>
+        <p>Audio Gate Recorder includes settings for choosing where recordings are saved and how they are encoded. These settings can be adjusted at any time under "Audio Gate Recorder" in "Settings" menu.</p>
+        <p>You can choose the folder where new recordings are saved. Changing the recording folder affects future recordings only.</p>
+        <p>Audio Gate Recorder supports these recording file types:</p>
+        <ul>
+        <li>CAF</li>
+        <li>WAV</li>
+        <li>AIFF</li>
+        <li>M4A</li>
+        </ul>
+        <p>Available encoding options depend on the selected file type and may include:</p>
+        <ul>
+        <li>Float32</li>
+        <li>Int16</li>
+        <li>ALAC</li>
+        <li>AAC</li>
+        </ul>
+        <p>Not every encoding format is available for every file type. Audio Gate Recorder shows compatible choices based on the current file type.</p>
+        <p>Float32 is well suited for high-quality recording and editing workflows.</p>
+        <p>Int16 is a common PCM format that offers broad compatibility.</p>
+        <p>ALAC provides lossless compression while preserving original audio quality.</p>
+        <p>AAC provides compressed output with smaller file sizes.</p>
+        <p>Recording format changes apply to future recordings only. Existing files are not automatically converted.</p>
+        </div>
+      <a class="back" href="#top">Back to index ↑</a></section><section class="guide-page" id="free-mode" data-page="9" aria-labelledby="free-mode-label"><div class="page-label" id="free-mode-label">Section 9 of 12</div>
+        <div>
+        <h2>Learn About Free Mode</h2>
+        <p>Audio Gate Recorder may run in Free Mode depending on your purchase status.</p>
+        <p>In Free Mode, recordings longer than 10 minutes will have noise added.</p>
+        <p>Upgrading removes Free Mode limitations and enables full recording behavior.</p>
+        <p>If the app shows a Free Mode banner, you can use it to view upgrade options.</p>
+        </div>
+      <a class="back" href="#top">Back to index ↑</a></section><section class="guide-page" id="tips" data-page="10" aria-labelledby="tips-label"><div class="page-label" id="tips-label">Section 10 of 12</div>
+        <div>
+        <h2>Tips for Best Results</h2>
+        <p>Use these tips to improve recording reliability and sound quality.</p>
+        <ul>
+        <li>Confirm that the correct sources are added.</li>
+        <li>When using multiple input sources open "Audio MIDI Setup" check following:</li>
+        <ul>
+        <li>For best results, use the same sample rate for all connected audio devices when possible. To check this, open Audio MIDI Setup, select each device used with Audio Gate Recorder, and compare the "Sample Rate" shown for each device.</li>
+        <li>If sources use different clocks, timing differences may occur during longer recordings. Select "Audio Gate Output Device" in Audio MIDI Setup and enable drift correction for secondary devices.</li>
+        <li>Make a short test recording before long sessions to confirm that all sources stay in sync.</li>
+        </ul>
+        <li>Check gain and mute settings.</li>
+        <li>Review recording folder and format settings.</li>
+        <li>Watch the timer to monitor session length.</li>
+        <li>Pause if needed without ending the session.</li>
+        <li>Review the file in the Recordings Sidebar after recording.</li>
+        <li>Reveal the file in Finder when needed.</li>
+        <li>Delete the test recordings you no longer need.</li>
+        <li>Use uncompressed or lossless formats when quality matters most.</li>
+        <li>Use compressed formats when smaller files are preferred.</li>
+        </ul>
+        </div>
+      <a class="back" href="#top">Back to index ↑</a></section><section class="guide-page" id="troubleshooting" data-page="11" aria-labelledby="troubleshooting-label"><div class="page-label" id="troubleshooting-label">Section 11 of 12</div>
+        <div>
+        <h2>Troubleshoot Audio Gate Recorder</h2>
+        <p class="fw-bold">No audio in the recording</p>
+        <ul>
+        <li>Make sure Audio Gate recorder has permission turned on under Screen "Privacy &amp; Security in Settings" ‐&gt; "System Audio Recording Only" for capturing system, apps audio.</li>
+        <li>Make sure Audio Gate recorder has permission turned on under Screen "Privacy &amp; Security in Settings" ‐&gt; "Microphone" for capturing mic audio.</li>
+        </ul>
+        <p>Make sure the desired source is added and connected to the main mix. Also confirm that the source is not muted and its level is not turned down.</p>
+        <p class="fw-bold">Recording does not sound correct</p>
+        <p>Check your routing connections and source levels. One source may be too loud or too quiet in the mix.</p>
+        <p class="fw-bold">A source does not appear</p>
+        <p>Try refreshing your setup or reopening the app if a newly connected device or source is not shown.</p>
+        <p class="fw-bold">Playback does not start</p>
+        <p>Make sure a recording is selected in the sidebar before using playback controls.</p>
+        <p>If a recording was saved to the wrong location or deleted outside Audio Gate Recorder, refresh the recordings list by clicking the refresh icon in the upper-right corner of the list to see available recordings.</p>
+        <p>Check the Recording Folder setting to confirm where new recordings are being saved.</p>
+        <p class="fw-bold">The file type or encoding is not what I expected</p>
+        <p>Check the recording settings before starting a session. Format changes affect future recordings only.</p>
+        <p>Audio include noise over 10 min of recording</p>
+        <p>This indicates that the app is currently running with Free Mode limitations enabled. You should see the Free Mode message in top banner.</p>
+        </div>
+      <a class="back" href="#top">Back to index ↑</a></section><section class="guide-page" id="support" data-page="12" aria-labelledby="support-label"><div class="page-label" id="support-label">Section 12 of 12</div>
+        <div>
+        <h2>Get Help and Support</h2>
+        <p>If you encounter unexpected behavior, first check the troubleshooting. If you need more help, please email us.</p>
+        <p>When requesting support, include details about:</p>
+        <ul>
+          <li>macOS version and processor type (Intel or Apple Silicon)</li>
+          <li>Which input audio sources were added</li>
+          <li>The selected file type and encoding</li>
+          <li>Whether the app was running in Free Mode</li>
+        </ul>
+        <p>
+             <a href="#" id="email-link">By Email</a>
+        </p>
+        </div>
+      <a class="back" href="#top">Back to index ↑</a></section></main></div>
+
+<Footer />
+
+<script>
+document.getElementById("email-link")?.addEventListener("click",(e)=>{
+    e.preventDefault();
+
+    const user="support";
+    const domain="chattysparrow.com";
+
+    window.location.href=`mailto:${user}@${domain}`;
+});
+</script>
+
+</AppsLayout>

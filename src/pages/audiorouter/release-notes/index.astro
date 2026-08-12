@@ -1,0 +1,58 @@
+---
+import AppsLayout from "@layouts/AppsLayout.astro";
+import Header from "@components/audiorouter/Header.astro";
+import Footer from "@components/Footer.astro";
+import { withBase } from '@utils/paths';
+import { releases } from '@data/releases';
+---
+
+<AppsLayout title="Audio Router - macOS Release Notes" faviconPath={withBase("/favicons/audiorouter")}>
+
+  <Header />
+
+  <main>
+    <section class="features section">
+      <div class="container section-title" data-aos="fade-up" data-aos-delay="100">
+        <div class="text-start">
+        <p class="eyebrow">Release notes</p><br>
+        <h4>Audio Router updates</h4>
+        <div class="grid releases">
+          {releases.map((release) => (
+            <article class="card">
+              <p class="meta">{release.date}</p>
+              <h5>Version {release.version}</h5>
+              <p>{release.title}</p>
+              <ul>
+                {release.notes.map((note) => <li>{note}</li>)}
+              </ul>
+            </article>
+          ))}
+        </div>
+      </div>
+      </div>
+    </section>
+
+<style>
+  .releases {
+    max-width: 840px;
+  }
+
+  .meta {
+    margin-bottom: 6px;
+    color: var(--accent);
+    font-weight: 760;
+  }
+
+  ul {
+    margin: 0;
+    padding-left: 20px;
+    color: var(--muted);
+    line-height: 1.7;
+  }
+</style>
+
+</main>
+
+<Footer />
+
+</AppsLayout>

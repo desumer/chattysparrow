@@ -1,0 +1,31 @@
+---
+import DownloadButton from '../../components/audiorouter/DownloadButton.astro';
+import { withBase } from '@utils/paths';
+---
+
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero section dark-background">
+
+      <img src={withBase("/src/assets/apps/assets/img/audiorouter/hero-bg.jpg")} alt="" data-aos="fade-in" class="">
+
+     <div class="container" data-aos="fade-up" data-aos-delay="100">
+        <p class="fs-1">Audio Router</p>
+        <p>Route <span class="typed" data-typed-items=" web and app audio as well as mics audio..."></span><span class="typed-cursor typed-cursor--blink" aria-hidden="true"></span><span class="typed-cursor typed-cursor--blink" aria-hidden="true"></span></p><br/>
+        <h1 class="fs-4">Route and mix audio from multiple input sources, or use the Pass-Through device to route audio between apps.</h1>
+          <div class="justify-content-center mt-5">
+          <div class="d-flex flex-column justify-content-center align-items text-center text-md-start" data-aos="fade-up">
+            <p>Download for free
+              <span class="d-block fs-6 fw-lighter mt-1 border-0">&lpar;When Audio Router is used in Free Mode, some limitations apply.&rpar;</span>
+            </p>
+            <p class="mt-4">Get Audio Router for macOS.</p>
+            <div class="button-row">
+                <DownloadButton />
+                <br/>
+                <a class="button" href={withBase("/audiorouter/release-notes/")}><small>Release Notes</small></a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </section><!-- /Hero Section -->

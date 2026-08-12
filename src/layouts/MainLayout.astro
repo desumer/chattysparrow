@@ -1,0 +1,73 @@
+---
+import { withBase } from '@utils/paths';
+
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>{title}</title>
+
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+
+  <!-- Favicons -->
+  <link rel="apple-touch-icon" sizes="180x180" href={withBase("/favicons/default/apple-touch-icon.png")}>
+  <link rel="icon" type="image/png" sizes="32x32" href={withBase("/favicons/default/favicon-32x32.png")}>
+  <link rel="icon" type="image/png" sizes="16x16" href={withBase("/favicons/default/favicon-16x16.png")}>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&family=Poppins:wght@100;300;400;500;700&family=Raleway:wght@100;300;400;500;700&display=swap"
+    rel="stylesheet">
+
+  <!-- CSS -->
+  <link href={withBase("/src/assets/vendor/bootstrap/css/bootstrap.min.css")} rel="stylesheet">
+  <link href={withBase("/src/assets/vendor/bootstrap-icons/bootstrap-icons.css")} rel="stylesheet">
+  <link href={withBase("/src/assets/vendor/aos/aos.css")} rel="stylesheet">
+  <link href={withBase("/src/assets/vendor/glightbox/css/glightbox.min.css")} rel="stylesheet">
+  <link href={withBase("/src/assets/vendor/swiper/swiper-bundle.min.css")} rel="stylesheet">
+
+  <link href={withBase("/src/assets/css/main.css")} rel="stylesheet">
+
+</head>
+
+<body class="index-page d-flex flex-column min-vh-100">
+
+  <slot />
+
+    <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Preloader -->
+  <div id="preloader"></div>
+
+  <!-- Vendor JS Files -->
+  <script is:inline src={withBase("/src/assets/vendor/bootstrap/js/bootstrap.bundle.min.js")}></script>
+  <script is:inline src={withBase("/src/assets/vendor/aos/aos.js")}></script>
+  <script is:inline src={withBase("/src/assets/vendor/typed.js/typed.umd.js")}></script>
+  <script is:inline src={withBase("/src/assets/vendor/purecounter/purecounter_vanilla.js")}></script>
+  <script is:inline src={withBase("/src/assets/vendor/waypoints/noframework.waypoints.js")}></script>
+  <script is:inline src={withBase("/src/assets/vendor/glightbox/js/glightbox.min.js")}></script>
+  <script is:inline src={withBase("/src/assets/vendor/imagesloaded/imagesloaded.pkgd.min.js")}></script>
+  <script is:inline src={withBase("/src/assets/vendor/isotope-layout/isotope.pkgd.min.js")}></script>
+  <script is:inline src={withBase("/src/assets/vendor/swiper/swiper-bundle.min.js")}></script>
+
+  <!-- Main JS File -->
+  <script is:inline src={withBase("/src/assets/js/main.js")}></script>
+
+</body>
+
+</html>
