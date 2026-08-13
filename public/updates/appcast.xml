@@ -8,8 +8,8 @@
             <sparkle:version>2</sparkle:version>
             <sparkle:shortVersionString>1.01</sparkle:shortVersionString>
             <sparkle:minimumSystemVersion>15.0</sparkle:minimumSystemVersion>
-            <sparkle:releaseNotesLink>https://chattysparrow.com/updates/release-notes/AudioRouter_1.01.html</sparkle:releaseNotesLink>
-            <enclosure url="https://chattysparrow.com/updates/AudioRouter_1.01.zip" length="7479183" type="application/octet-stream" sparkle:edSignature="itBarlMShbpJ9qBXYoWLjTMp6/f9UJsQBlTd4LzVCZ6OcXvUok6CDWZQWLTwdZguMM7OiRhtGyuD+Bfp2QDmDg=="/>
+            <sparkle:releaseNotesLink>https://www.chattysparrow.com/updates/release-notes/AudioRouter_1.01.html</sparkle:releaseNotesLink>
+            <enclosure url="https://www.chattysparrow.com/updates/AudioRouter_1.01.zip" length="7479183" type="application/octet-stream" sparkle:edSignature="itBarlMShbpJ9qBXYoWLjTMp6/f9UJsQBlTd4LzVCZ6OcXvUok6CDWZQWLTwdZguMM7OiRhtGyuD+Bfp2QDmDg=="/>
         </item>
     </channel>
 </rss>
