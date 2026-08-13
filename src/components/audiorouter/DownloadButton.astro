@@ -15,7 +15,7 @@ const { variant = 'primary' } = Astro.props;
     <a  aria-disabled="true" class={`download-btn ${variant === 'primary' ? 'primary' : ''}`} href="#" data-download-url={withBase(site.downloadUrl)}>
       <i class="bi bi-download"></i>
       Download {site.name}
-      <span>v{latestRelease.version}</span>
+      <span>&nbsp;v{latestRelease.version}</span>
     </a>
   </div>
   <div class="fw-light fs-6"><span data-platform-note hidden>Audio Router is available for macOS only.</span></div>
