@@ -10,6 +10,18 @@ export type Release = {
 
 export const releases: Release[] = [
   {
+    version: '1.29',
+    build: '30',
+    date: '2026-22-08',
+    title: 'Audio Router update release.',
+    notes: [
+      'Stability improvements.',
+      'Stale UID fix.',
+    ],
+    archivePath: '/updates/AudioRouter_1.29.zip',
+    appcastPath: '/updates/appcast.xml'
+  },
+  {
     version: '1.28',
     build: '29',
     date: '2026-20-08',
