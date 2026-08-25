@@ -3,13 +3,13 @@
     <channel>
         <title>Audio Router</title>
         <item>
-            <title>1.29</title>
-            <pubDate>Sat, 22 Aug 2026 09:41:49 -0400</pubDate>
-            <sparkle:version>30</sparkle:version>
-            <sparkle:shortVersionString>1.29</sparkle:shortVersionString>
+            <title>1.30</title>
+            <pubDate>Tue, 25 Aug 2026 16:20:27 -0400</pubDate>
+            <sparkle:version>32</sparkle:version>
+            <sparkle:shortVersionString>1.30</sparkle:shortVersionString>
             <sparkle:minimumSystemVersion>15.0</sparkle:minimumSystemVersion>
-            <sparkle:releaseNotesLink>https://www.chattysparrow.com/updates/release-notes/AudioRouter_1.29.html</sparkle:releaseNotesLink>
-            <enclosure url="https://www.chattysparrow.com/updates/AudioRouter_1.29.zip" length="7475560" type="application/octet-stream" sparkle:edSignature="iL/luvkAZENBWQnrsJ2vVajk8QhL8b366bmC16bbMd+A+YUuyRcnRIQJMY3vR/h3ftrdiFVu04pGGI/K7C9yAw=="/>
+            <sparkle:releaseNotesLink>https://www.chattysparrow.com/updates/release-notes/AudioRouter_1.30.html</sparkle:releaseNotesLink>
+            <enclosure url="https://www.chattysparrow.com/updates/AudioRouter_1.30.zip" length="7491900" type="application/octet-stream" sparkle:edSignature="7Auo8sGxucKiU+nDR9A7178rKrHuwVjl3p5EVsMoST8WpVThjp3nfqEeNkXWhcQgH9Fj60cy0O2p6lVi8LWfBw=="/>
         </item>
     </channel>
 </rss>
