@@ -10,6 +10,18 @@ export type Release = {
 
 export const releases: Release[] = [
   {
+    version: '1.34',
+    build: '37',
+    date: '2026-26-08',
+    title: 'Audio Router update release.',
+    notes: [
+      'macOS Tahoe related minor bug fixes.',
+      'Driver icon fixed.',
+    ],
+    archivePath: '/updates/AudioRouter_1.34.zip',
+    appcastPath: '/updates/appcast.xml'
+  },
+  {
     version: '1.30',
     build: '32',
     date: '2026-25-08',
