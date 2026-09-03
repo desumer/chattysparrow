@@ -11,5 +11,5 @@ export default defineConfig({
   site,
   base,
   output: 'static',
-  integrations: [sitemap()]
+  integrations: [sitemap({ filter: (page) => !page.includes('https://www.chattysparrow.com/audiorouter/release-notes') })],
 });
