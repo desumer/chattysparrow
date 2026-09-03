@@ -1,0 +1,529 @@
+---
+import AppsLayout from "@layouts/AppsLayout.astro";
+import Header from "@components/audiorouter/Header.astro";
+import Footer from "@components/Footer.astro";
+import { withBase } from '@utils/paths';
+---
+
+<AppsLayout title="Chatty Sparrow - How to Record a Zoom Guest in Logic Pro Without Echo" faviconPath={withBase("/favicons/audiorouter")} description="Record your microphone and a remote Zoom guest on separate Logic Pro tracks using Audio Router, with a mix-minus setup that prevents guest echo.">
+
+<Header />
+
+<main>
+    <section id="tutorial" class="features section">
+      <div class="container section-title" data-aos="fade-up" data-aos-delay="100">
+        <div class="text-start">
+        <article class="tutorial">
+        <header>
+            <p class="tutorial-category">Audio Router Tutorial</p>
+
+            <h1>How to Record a Zoom Guest in Logic Pro Without Echo</h1>
+
+            <p class="tutorial-introduction">
+            Learn how to record your microphone and a remote Zoom guest on separate
+            Logic Pro tracks while sending only your processed microphone back into
+            Zoom. This mix-minus setup prevents the guest from hearing a delayed copy
+            of their own voice.
+            </p>
+        </header>
+        <br />
+        <aside class="tutorial-note" aria-labelledby="requirements-heading">
+            <h2 id="requirements-heading">What you’ll need</h2>
+
+            <ul>
+            <li>A Mac running macOS 15 or later</li>
+            <li>Audio Router installed and configured</li>
+            <li>Logic Pro</li>
+            <li>The Zoom desktop application</li>
+            <li>A microphone or audio interface</li>
+            <li>Headphones or a headset</li>
+            </ul>
+        </aside>
+
+        <section aria-labelledby="mix-minus-heading">
+            <h2 id="mix-minus-heading">What is mix-minus?</h2>
+
+            <p>
+            A mix-minus sends someone the complete audio mix minus their own voice.
+            In this setup, your microphone travels through Logic Pro into Zoom, while
+            the Zoom guest is captured on a separate Logic track with no output back
+            to Zoom.
+            </p>
+
+            <pre aria-label="Podcast mix-minus signal flow"><code>
+        Your microphone
+            ↓
+        Podcast Inputs — Channel 1
+            ↓
+        Logic microphone track
+            ↓ EQ and Compressor
+        Logic to Zoom
+            ↓
+        Zoom microphone
+
+        Zoom guest
+            ↓
+        External headphones
+            ↓ captured by Audio Router
+        Podcast Inputs — Channels 3–4
+            ↓
+        Logic Zoom Guest track
+            ↓
+        Recording only — No Output</code></pre>
+
+            <p>
+            The guest can hear you, and you can hear the guest through your
+            headphones. Logic records both sides separately, but the guest track is
+            not returned to Zoom.
+            </p>
+        </section>
+
+        <section aria-labelledby="prepare-heading">
+            <h2 id="prepare-heading">1. Prepare the Logic Pro project</h2>
+
+            <ol>
+            <li>Open Logic Pro and create an empty project.</li>
+            <li>Create a mono audio track for your microphone.</li>
+            <li>Name the track <strong>Host Microphone</strong>.</li>
+            <li>Click the track’s <strong>R</strong> button to record-enable it.</li>
+            <li>Speak into the microphone and confirm that its meter responds.</li>
+            </ol>
+
+            <p>You do not need to press Logic Pro’s main Record button yet. The track only needs to be record-enabled to receive the live input.</p>
+        </section>
+
+        <section aria-labelledby="processing-heading">
+            <h2 id="processing-heading">2. Add microphone processing</h2>
+
+            <ol>
+            <li>Select the <strong>Host Microphone</strong> track.</li>
+            <li>Locate an empty <strong>Audio FX</strong> slot.</li>
+            <li>Add <strong>EQ → Channel EQ</strong>.</li>
+            <li>In the next Audio FX slot, add <strong>Dynamics → Compressor</strong>.</li>
+            <li>Use the mono versions when available.</li>
+            </ol>
+
+            <pre aria-label="Host microphone processing order"><code>
+        Microphone
+            ↓
+        Channel EQ
+            ↓
+        Compressor
+            ↓
+        Logic Pro output</code></pre>
+
+            <p>The exact processing is up to you. EQ and compression provide a simple starting point for spoken-word recording.</p>
+        </section>
+
+        <section aria-labelledby="zoom-output-device-heading">
+            <h2 id="zoom-output-device-heading">3. Create the Logic to Zoom output device</h2>
+
+            <ol>
+            <li>Open Audio Router.</li>
+            <li>Click the large <strong>+</strong> button at the bottom of the session sidebar.</li>
+            <li>Rename the new session <strong>Logic to Zoom</strong>.</li>
+            <li>Keep the default <strong>Pass-Through</strong> source.</li>
+            <li>Confirm that Pass-Through is connected to Channels 1 and 2.</li>
+            <li>Make sure the session is enabled and unmuted.</li>
+            </ol>
+
+            <pre aria-label="Logic to Zoom Audio Router connections">
+            <code>
+        Pass-Through Left  → Channel 1 Pass-Through Right → Channel 2
+            </code></pre>
+
+            <p>This virtual device carries Logic Pro’s processed output into Zoom.</p>
+        </section>
+
+        <section aria-labelledby="podcast-inputs-heading">
+            <h2 id="podcast-inputs-heading">4. Create the multichannel Podcast Inputs device</h2>
+
+            <ol>
+            <li>Create another Audio Router session.</li>
+            <li>Rename it <strong>Podcast Inputs</strong>.</li>
+            <li>Remove its default Pass-Through source.</li>
+            <li>Use the <span class="fs-5"><i class="bi bi-plus-circle"></i></span> button beside <strong>Channels</strong> to add a second stereo pair.</li>
+            <li>Confirm that the session now has four channels.</li>
+            </ol>
+
+            <p>The four channels will be assigned as follows:</p><br />
+
+            <dl class="channel-assignment">
+            <div>
+                <dt>Channel 1</dt>
+                <dd>Host microphone</dd>
+            </div>
+
+            <div>
+                <dt>Channel 2</dt>
+                <dd>Unused</dd>
+            </div>
+
+            <div>
+                <dt>Channels 3–4</dt>
+                <dd>Zoom guest audio</dd>
+            </div>
+            </dl>
+        </section>
+
+        <section aria-labelledby="add-microphone-heading">
+            <h2 id="add-microphone-heading">5. Add the microphone to Podcast Inputs</h2>
+
+            <ol>
+            <li>Click the <strong>+</strong> button beside <strong>Sources</strong>.</li>
+            <li>Select your microphone or audio interface.</li>
+            <li>Remove any unwanted automatic connections.</li>
+            <li>Connect the microphone’s active output port only to <strong>Channel 1</strong>.</li>
+            <li>Speak and confirm that Channel 1 responds.</li>
+            </ol>
+
+            <pre aria-label="Microphone channel assignment">
+            <code>
+        Microphone → Channel 1
+            </code></pre>
+
+            <p>Channels 2–4 should remain inactive when only the microphone is producing sound.</p>
+        </section>
+
+        <section aria-labelledby="add-zoom-heading">
+            <h2 id="add-zoom-heading">6. Add Zoom to Podcast Inputs</h2>
+
+            <ol>
+            <li>Open Zoom.</li>
+            <li>Go to <strong>Settings → Audio</strong>.</li>
+            <li>Under <strong>Speaker</strong>, select your external headphones or headset.</li>
+            <li>Start Zoom’s speaker test so the application produces audio.</li>
+            <li>Return to Audio Router.</li>
+            <li>Click the <span class="fs-4"><i class="bi bi-plus-circle"></i></span> button beside <strong>Sources</strong>.</li>
+            <li>Select <strong>Zoom</strong> or <strong>Zoom Workplace</strong>.</li>
+            <li>Remove any automatic Zoom connections to Channels 1 and 2.</li>
+            <li>Connect Zoom’s left output to Channel 3 and its right output to Channel 4.</li>
+            </ol>
+
+            <pre aria-label="Zoom guest channel assignment"><code>
+        Zoom Left  → Channel 3
+        Zoom Right → Channel 4</code></pre>
+
+            <p>Open the Zoom source options in Audio Router and make sure <strong>Mute when capturing</strong> is disabled. This allows you to continue hearing the guest through your headphones.</p>
+
+            <aside class="tutorial-tip">
+            <p>If Zoom is missing from Audio Router’s source list, start Zoom’s speaker test, close the Sources list, and open it again.</p>
+            </aside>
+        </section>
+
+        <section aria-labelledby="logic-devices-heading">
+            <h2 id="logic-devices-heading">7. Configure Logic Pro’s audio devices</h2>
+
+            <ol>
+            <li>Return to Logic Pro.</li>
+            <li>Open <strong>Logic Pro → Settings → Audio → Devices</strong>.</li>
+            <li>Set <strong>Input Device</strong> to <strong>Podcast Inputs</strong>.</li>
+            <li>Set <strong>Output Device</strong> to <strong>Logic to Zoom</strong>.</li>
+            <li>Apply the device changes if Logic Pro asks.</li>
+            </ol>
+
+            <div class="tutorial-settings-summary">
+            <h3 class="mb-3">Logic Pro audio settings</h3>
+
+            <dl>
+                <div>
+                <dt>Input Device</dt>
+                <dd>Podcast Inputs</dd>
+                </div>
+
+                <div>
+                <dt>Output Device</dt>
+                <dd>Logic to Zoom</dd>
+                </div>
+            </dl>
+            </div>
+
+            <p>Set the existing <strong>Host Microphone</strong> track to mono&nbsp;<strong>Input 1</strong>. Speak and confirm that its meter still responds.</p>
+        </section>
+
+        <section aria-labelledby="guest-track-heading">
+            <h2 id="guest-track-heading">8. Create the Zoom guest track</h2>
+
+            <ol>
+            <li>Create a new audio track in Logic Pro.</li>
+            <li>Set its input format to <strong>Stereo</strong>.</li>
+            <li>Select <strong>Input 3–4</strong>.</li>
+            <li>Name the track <strong>Zoom Guest</strong>.</li>
+            <li>Set the track’s output to <strong>No Output</strong>.</li>
+            <li>Click the track’s <strong>R</strong> button to record-enable it.</li>
+            <li>Run Zoom’s speaker test again.</li>
+            <li>Confirm that the Zoom Guest track meter responds.</li>
+            </ol>
+
+            <aside class="tutorial-warning">
+            <p><strong>Mix-minus requirement:</strong> The Zoom Guest track must use <strong>No Output</strong> during the call. Sending it to Logic’s Stereo Out would return the guest’s voice to Zoom with a delay and cause echo.</p>
+            </aside>
+        </section>
+
+        <section aria-labelledby="zoom-settings-heading">
+            <h2 id="zoom-settings-heading">9. Configure Zoom</h2>
+
+            <ol>
+            <li>Open Zoom’s <strong>Settings → Audio</strong>.</li>
+            <li>Under <strong>Microphone</strong>, select <strong>Logic to Zoom</strong>.</li>
+            <li>Under <strong>Speaker</strong>, select your external headphones or headset.
+            </li>
+            </ol>
+
+            <div class="tutorial-settings-summary">
+            <h3>Zoom audio settings</h3>
+
+            <dl>
+                <div>
+                <dt>Microphone</dt>
+                <dd>Logic to Zoom</dd>
+                </div>
+
+                <div>
+                <dt>Speaker</dt>
+                <dd>External headphones or headset</dd>
+                </div>
+            </dl>
+            </div>
+
+            <p>Do not select <strong>Logic to Zoom</strong> as Zoom’s speaker. Incoming guest audio should go directly to your headphones.</p>
+        </section>
+
+        <section aria-labelledby="track-settings-heading">
+            <h2 id="track-settings-heading">10. Check the Logic track settings</h2>
+
+            <div class="tutorial-settings-summary">
+            <h3>Host Microphone track</h3>
+
+            <dl>
+                <div>
+                <dt>Input</dt>
+                <dd>Mono Input 1</dd>
+                </div>
+
+                <div>
+                <dt>Output</dt>
+                <dd>Stereo Out</dd>
+                </div>
+
+                <div>
+                <dt>Record Enable</dt>
+                <dd>On</dd>
+                </div>
+            </dl>
+            </div>
+
+            <div class="tutorial-settings-summary">
+            <h3>Zoom Guest track</h3>
+
+            <dl>
+                <div>
+                <dt>Input</dt>
+                <dd>Stereo Input 3–4</dd>
+                </div>
+
+                <div>
+                <dt>Output</dt>
+                <dd>No Output</dd>
+                </div>
+
+                <div>
+                <dt>Record Enable</dt>
+                <dd>On</dd>
+                </div>
+            </dl>
+            </div>
+        </section>
+
+        <section aria-labelledby="record-heading">
+            <h2 id="record-heading">11. Record the podcast</h2>
+
+            <ol>
+            <li>Confirm that both Logic tracks are record-enabled.</li>
+            <li>Start or join the Zoom meeting.</li>
+            <li>Confirm that you can hear the guest through your headphones.</li>
+            <li>Confirm that the guest can hear your microphone.</li>
+            <li>Press Logic Pro’s main <strong>Record</strong> button.</li>
+            <li>Record the conversation.</li>
+            <li>Stop Logic Pro when the session is complete.</li>
+            </ol>
+
+            <p>Logic should create two independent recording regions:</p>
+
+            <ul>
+            <li>Your microphone on the Host Microphone track</li>
+            <li>The remote participant on the Zoom Guest track</li>
+            </ul>
+
+            <p>Separate tracks allow you to edit, process, balance, and export each side of the conversation independently.</p>
+        </section>
+
+        <section aria-labelledby="level-heading">
+            <h2 id="level-heading">12. Set healthy recording levels</h2>
+
+            <p>Run a short test before beginning the real conversation. Ask the guest to speak at their normal volume and watch the Zoom Guest track meter.</p>
+
+            <p>
+            Adjust the Zoom source level inside Audio Router if necessary. Aim for
+            typical peaks around −18 to −12 dBFS in Logic, with occasional louder
+            peaks remaining safely below 0 dBFS.
+            </p>
+
+            <p>
+            Do not judge the captured level solely from your headphone volume.
+            Zoom’s speaker volume and Logic’s recording-input level are separate signal paths.
+            </p>
+        </section>
+
+        <section aria-labelledby="playback-heading">
+            <h2 id="playback-heading">13. Review the recording</h2>
+
+            <p>
+            The Zoom Guest track uses No Output during the call, so it will not play
+            through Logic’s normal output until you change the review configuration.
+            </p>
+
+            <ol>
+            <li>End or leave the Zoom meeting.</li>
+            <li>Disable record-enable on both Logic tracks.</li>
+            <li>Temporarily set Logic Pro’s Output Device to your external headphones.</li>
+            <li>Change the Zoom Guest track from <strong>No Output</strong> to <strong>Stereo Out</strong>.</li>
+            <li>Play the recording and review both tracks.</li>
+            </ol>
+
+            <aside class="tutorial-warning">
+            <p>Restore the Zoom Guest track to <strong>No Output</strong> before the next live call. Otherwise, the guest may hear a delayed copy of their own voice.</p>
+            </aside>
+        </section>
+
+        <section aria-labelledby="verification-heading">
+            <h2 id="verification-heading">Verify the mix-minus</h2>
+
+            <ol>
+            <li>Restore Logic Pro’s Output Device to <strong>Logic to Zoom</strong>.</li>
+            <li>Restore the Zoom Guest track output to <strong>No Output</strong>.</li>
+            <li>Run Zoom’s speaker test without speaking.</li>
+            <li>Confirm that the Zoom Guest track receives the sound.</li>
+            <li>Confirm that Zoom’s microphone meter does not significantly respond to its own speaker-test sound.</li>
+            <li>Speak into your microphone.</li>
+            <li>Confirm that Zoom’s microphone meter now responds.</li>
+            </ol>
+
+            <p>A successful test proves the intended routing:</p>
+
+            <pre aria-label="Verified mix-minus result"><code>
+        Your microphone → Zoom
+        Zoom guest → Logic recording
+        Zoom guest ✕ back into Zoom</code></pre>
+        </section>
+
+        <section aria-labelledby="troubleshooting-heading">
+            <h2 id="troubleshooting-heading">Troubleshooting</h2>
+
+            <h3>Zoom does not appear in Audio Router</h3>
+
+            <ul>
+            <li>Make sure Zoom is open.</li>
+            <li>Run Zoom’s speaker test so it actively produces audio.</li>
+            <li>Close and reopen Audio Router’s Sources list.</li>
+            </ul>
+
+            <h3>The Host Microphone track receives nothing</h3>
+
+            <ul>
+            <li>Confirm that Logic Pro’s Input Device is set to Podcast Inputs.</li>
+            <li>Set the track to mono Input 1.</li>
+            <li>Record-enable the track.</li>
+            <li>Confirm that the Audio Router microphone source reaches Channel 1.</li>
+            </ul>
+
+            <h3>The Zoom Guest track receives nothing</h3>
+
+            <ul>
+            <li>Set the track to stereo Input 3–4.</li>
+            <li>Record-enable the track.</li>
+            <li>Confirm that Audio Router routes Zoom Left and Right to Channels 3 and 4.</li>
+            <li>Run Zoom’s speaker test while checking the meters.</li>
+            </ul>
+
+            <h3>The guest hears themselves with a delay</h3>
+
+            <ul>
+            <li>Immediately confirm that the Zoom Guest track is set to No Output.</li>
+            <li>Do not route Zoom into the Logic Stereo Out.</li>
+            <li>Check that Zoom has not been added to the Logic to Zoom session.</li>
+            <li>Use headphones rather than speakers.</li>
+            </ul>
+
+            <h3>The recorded guest sounds quiet during playback</h3>
+
+            <ul>
+            <li>Remember that No Output prevents normal Logic playback during the call.</li>
+            <li>For review, temporarily set the Zoom Guest track to Stereo Out.</li>
+            <li>Temporarily set Logic Pro’s output to your headphones.</li>
+            <li>Adjust the track fader during editing if necessary.</li>
+            </ul>
+
+            <h3>The guest recording level is genuinely too low</h3>
+
+            <ul>
+            <li>Ask the guest to speak at their normal recording level.</li>
+            <li>Raise the Zoom application-source level in Audio Router.</li>
+            <li>Watch Logic’s input meter and avoid clipping.</li>
+            <li>Do not rely on headphone loudness to judge the recording level.</li>
+            </ul>
+        </section>
+
+        <section aria-labelledby="final-configuration-heading">
+            <h2 id="final-configuration-heading">Final configuration checklist</h2>
+
+            <h3>Audio Router: Podcast Inputs</h3>
+
+            <ul>
+            <li>Microphone → Channel 1</li>
+            <li>Zoom Left → Channel 3</li>
+            <li>Zoom Right → Channel 4</li>
+            <li>Zoom Mute when capturing: Off</li>
+            <li>Session enabled and unmuted</li>
+            </ul>
+
+            <h3>Audio Router: Logic to Zoom</h3>
+
+            <ul>
+            <li>Pass-Through → Channels 1 and 2</li>
+            <li>Session enabled and unmuted</li>
+            </ul>
+
+            <h3>Logic Pro</h3>
+
+            <ul>
+            <li>Input Device: Podcast Inputs</li>
+            <li>Output Device: Logic to Zoom</li>
+            <li>Host Microphone: Input 1 → Stereo Out</li>
+            <li>Zoom Guest: Input 3–4 → No Output</li>
+            <li>Both tracks record-enabled</li>
+            </ul>
+
+            <h3>Zoom</h3>
+
+            <ul>
+            <li>Microphone: Logic to Zoom</li>
+            <li>Speaker: External headphones or headset</li>
+            </ul>
+        </section>
+
+        <footer class="tutorial-footer">
+            <p>
+            You now have separate host and guest recordings in Logic Pro, with the host microphone processed before it reaches Zoom and the guest excluded
+            from the return mix. This provides a practical two-track remote podcast recording workflow without sending the guest an echo of their own voice.
+            </p>
+        </footer>
+        </article>
+        </div>
+      </div>
+    </section>
+</main>
+
+<Footer />
+
+</AppsLayout>

@@ -19,18 +19,13 @@ import { withBase } from '@utils/paths';
       <ul>
         <li><a href={withBase("/vudeck/#hero")} class="active"><i class="bi bi-house navicon"></i>Home</a></li>
         <li><a href={withBase("/vudeck/#portfolio")}><i class="bi bi-app navicon"></i> App</a></li>
-        <li class="dropdown"><a href={withBase("/vudeck/help")}><i class="bi bi-info-lg navicon"></i> <span>Help</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
-          <ul>
-            <li><a href={withBase("/vudeck/help/Mac/help")}>macOS</a></li>
-            <li><a href={withBase("/vudeck/help/Windows/help")}>Windows</a></li>
-          </ul>
-        </li>
+        <li><a href={withBase("/vudeck/#help")}><i class="bi bi-info-lg navicon"></i>User Guides</a></li>
         <li><a href={withBase("/vudeck/#contact")}><i class="bi bi-envelope navicon"></i> Contact</a></li>
-        <li class="dropdown"><a href={withBase("/vudeck/about")}><i class="bi bi-menu-button navicon"></i> <span>About</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+        <li class="dropdown"><a href={withBase("/vudeck/#about")}><i class="bi bi-menu-button navicon"></i> <span>About</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
           <ul>
             <li><a href={withBase("/vudeck/company")}>Company</a></li>
             <li><a href={withBase("/vudeck/privacy")}>Privacy Policy</a></li>
-            <li><a href={withBase("/vudeck/eula")}><span>End User License <br>Agreement (EULA)</span></a></li>
+            <li><a href={withBase("/vudeck/eula")}>End User License <br>Agreement (EULA)</a></li>
           </ul>
         </li>
       </ul>

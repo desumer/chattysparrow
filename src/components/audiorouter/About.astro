@@ -1,17 +1,7 @@
 ---
-import AppsLayout from "@layouts/AppsLayout.astro";
-import Header from "@components/audiorouter/Header.astro";
-import Footer from "@components/Footer.astro";
 import { withBase } from '@utils/paths';
----
-
-<AppsLayout title="Chatty Sparrow - About" faviconPath={withBase("/favicons/audiorouter")}>
-
-<Header />
-
-<main>
-
-    <section id="about" class="about section">
+---    
+    <section id="about" class="about section light-background">
 
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
@@ -27,9 +17,3 @@ import { withBase } from '@utils/paths';
       </div><!-- End Section Title -->
 
     </section>
-
-</main>
-
-<Footer />
-
-</AppsLayout>

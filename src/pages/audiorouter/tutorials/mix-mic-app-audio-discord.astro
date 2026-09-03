@@ -1,0 +1,317 @@
+---
+import AppsLayout from "@layouts/AppsLayout.astro";
+import Header from "@components/audiorouter/Header.astro";
+import Footer from "@components/Footer.astro";
+import { withBase } from '@utils/paths';
+---
+
+<AppsLayout title="Chatty Sparrow - How to Mix Microphone and App Audio in Discord on Mac" faviconPath={withBase("/favicons/audiorouter")} description="Combine your microphone with audio from other applications (e.g., Safari, a music player, or a soundboard) and send the mix to Discord using Audio Router on macOS.">
+
+<Header />
+
+<main>
+    <section id="tutorial" class="features section">
+      <div class="container section-title" data-aos="fade-up" data-aos-delay="100">
+        <div class="text-start">
+        <article class="tutorial">
+        <header>
+            <p class="tutorial-category">Audio Router Tutorial</p>
+
+            <h1>How to Mix Microphone and App Audio in Discord on Mac</h1>
+
+            <p class="tutorial-introduction">
+            Learn how to use Audio Router to combine your microphone with audio
+            from Safari, a music player, a soundboard, or another Mac application
+            and send the resulting mix into Discord.
+            </p>
+        </header>
+
+        <aside class="tutorial-note" aria-labelledby="requirements-heading">
+            <h2 id="requirements-heading">What you’ll need</h2>
+
+            <ul>
+            <li>A Mac running macOS 15 or later</li>
+            <li>Audio Router installed and configured</li>
+            <li>The Discord desktop application</li>
+            <li>A microphone</li>
+            <li>Headphones or a headset</li>
+            <li>Safari or another application that produces audio</li>
+            </ul>
+        </aside>
+
+        <section aria-labelledby="how-it-works-heading">
+            <h2 id="how-it-works-heading">How the routing works</h2>
+
+            <p>
+            Audio Router captures your microphone and the audio from a selected
+            application. It combines them into a virtual audio device that Discord
+            can use as its microphone input.
+            </p><br/>
+
+            <pre aria-label="Audio signal flow"><code>Microphone ─┐
+            ├─→ Audio Router → Discord input
+Safari ─────┘
+
+Discord output → Headphones</code></pre>
+
+            <p>
+            This tutorial uses Safari as the application source, but you can
+            substitute a soundboard, music player, media player, browser, or another
+            supported audio-producing Mac application.
+            </p>
+        </section>
+
+        <section aria-labelledby="discord-preparation-heading">
+            <h2 id="discord-preparation-heading">1. Prepare Discord</h2>
+
+            <ol>
+            <li>Install and open the Discord desktop application.</li>
+            <li>Sign in to your Discord account.</li>
+            <li>
+                Open <strong>User Settings</strong> using the gear icon near the
+                bottom-left corner.
+            </li>
+            <li>Select <strong>Voice &amp; Video</strong>.</li>
+            <li>
+                Select your normal microphone under <strong>Input Device</strong>.
+            </li>
+            <li>
+                Use Discord’s microphone test to confirm that the microphone works.
+            </li>
+            </ol>
+
+            <p>
+            Leave Discord open. You will select the Audio Router device after
+            creating the mix.
+            </p>
+        </section>
+
+        <section aria-labelledby="session-heading">
+            <h2 id="session-heading">2. Create an Audio Router session</h2>
+
+            <ol>
+            <li>Open <strong>Audio Router</strong>.</li>
+            <li>
+                Click the large <strong class="fs-4"><i class="bi bi-plus-circle"></i></strong> button at the bottom of the session sidebar.
+            </li>
+            <li>
+                Select the new session and rename it&nbsp;<strong>Discord Mix</strong>.
+            </li>
+            <li>
+                Confirm that the session is enabled. Its status indicator should be
+                green.
+            </li>
+            <li>
+                Select the default <strong>Pass-Through</strong> source.
+            </li>
+            <li>
+                Click the <strong class="fs-4"><i class="bi bi-dash-circle"></i></strong> button beside <strong>Sources</strong> to remove it.
+            </li>
+            </ol>
+
+            <aside class="tutorial-tip">
+            <p>
+                <strong>Why remove Pass-Through?</strong>
+                A Pass-Through source cannot be used in the same session as application
+                or hardware input sources. This session needs separate microphone and
+                Safari sources.
+            </p>
+            </aside>
+        </section>
+
+        <section aria-labelledby="microphone-heading">
+            <h2 id="microphone-heading">3. Add your microphone</h2>
+
+            <ol>
+            <li>Click the <strong class="fs-4"><i class="bi bi-plus-circle"></i></strong> button beside <strong>Sources</strong>.</li>
+            <li>Select the microphone you tested in Discord.</li>
+            <li>Confirm that Audio Router adds the microphone as a source block.</li>
+            <li>Speak into the microphone.</li>
+            <li>Check that the microphone source meter and Audio Router Channels meter both respond.</li>
+            </ol>
+
+            <p>Keep the microphone level moderate. Avoid sustained orange or red meter levels, which may indicate clipping.</p>
+        </section>
+
+        <section aria-labelledby="application-heading">
+            <h2 id="application-heading">4. Add Safari or another application</h2>
+
+            <ol>
+            <li>Open Safari and begin playing an audio or video clip.</li>
+            <li>Keep the audio playing briefly.</li>
+            <li>Return to Audio Router.</li>
+            <li>Click the <strong class="fs-4"><i class="bi bi-plus-circle"></i></strong> button beside <strong>Sources</strong>.</li>
+            <li>Select <strong>Safari</strong> from the application list.</li>
+            <li>Confirm that Safari is added as a source and connected to the Audio Router Channels.</li>
+            <li>Play the Safari audio and confirm that its source meter and the Channels meter respond.</li>
+            </ol>
+
+            <aside class="tutorial-tip">
+            <p>
+                <strong>Safari does not appear?</strong> Make sure Safari is running and actively producing audio. Close and reopen the Sources list to refresh the available applications.
+            </p>
+            </aside>
+        </section>
+
+        <section aria-labelledby="monitor-warning-heading">
+            <h2 id="monitor-warning-heading">5. Do not add an Audio Router monitor</h2>
+
+            <p>A monitor device is not required for this basic Discord workflow. Leave the Audio Router <strong>Monitor</strong> area empty.</p>
+
+            <aside class="tutorial-warning">
+            <p><strong>Important:</strong> Monitoring the combined mix can send your live microphone back to your headphones. The resulting delay may sound like echo or doubled audio. Select your headphones directly as Discord’s output device instead.</p>
+            </aside>
+        </section>
+
+        <section aria-labelledby="discord-configuration-heading">
+            <h2 id="discord-configuration-heading">6. Select the mix in Discord</h2>
+
+            <ol>
+            <li>
+                Return to <strong>Discord → User Settings → Voice &amp; Video</strong>.
+            </li>
+            <li>
+                Under <strong>Input Device</strong>, select <strong>Discord Mix</strong>.
+            </li>
+            <li>
+                Under <strong>Output Device</strong>, select your headphones or headset.
+            </li>
+            <li>Start Discord’s microphone test.</li>
+            <li>Speak into your microphone.</li>
+            <li>Play the Safari audio.</li>
+            <li>Confirm that Discord’s input meter responds to both your voice and the application audio.</li>
+            </ol>
+
+            <div class="tutorial-settings-summary">
+            <h3>Recommended Discord settings</h3>
+
+            <dl>
+                <div>
+                <dt>Input Device</dt>
+                <dd>Discord Mix</dd>
+                </div>
+
+                <div>
+                <dt>Output Device</dt>
+                <dd>Your headphones or headset</dd>
+                </div>
+            </dl>
+            </div>
+
+            <p>Do not select <strong>Discord Mix</strong> as Discord’s output device. Doing so may route Discord’s incoming audio into the wrong path and cause echo.</p>
+        </section>
+
+        <section aria-labelledby="testing-heading">
+            <h2 id="testing-heading">7. Test the mix in a voice channel</h2>
+
+            <ol>
+            <li>Join an appropriate Discord voice channel.</li>
+            <li>
+                Ask a friend to listen, or join from a second device using another account.
+            </li>
+            <li>Speak normally and play audio in Safari.</li>
+            <li>
+                Confirm that the listener can hear both your microphone and Safari.
+            </li>
+            <li>
+                Adjust the individual microphone and Safari levels inside Audio Router.
+            </li>
+            </ol>
+
+            <p>Adjusting the sources separately lets you balance your voice against music, clips, or sound effects without changing Discord’s overall input level.</p>
+        </section>
+
+        <section aria-labelledby="processing-heading">
+            <h2 id="processing-heading">What to do if Discord suppresses music or sound effects</h2>
+
+            <p>Discord’s voice processing is designed primarily for speech. Noise suppression and automatic voice processing may reduce or distort music, sustained sounds, and some effects.</p>
+
+            <p>If this happens, open Discord’s <strong>Voice &amp; Video</strong> settings and test with less aggressive voice processing. Change onesetting at a time and repeat the microphone test.</p>
+
+            <aside class="tutorial-warning">
+            <p>Keep using headphones while testing. Reducing echo cancellation or noise suppression can increase the risk of feedback when speakers are used.</p>
+            </aside>
+        </section>
+
+        <section aria-labelledby="troubleshooting-heading">
+            <h2 id="troubleshooting-heading">Troubleshooting</h2>
+
+            <h3>Discord Mix does not appear in Discord</h3>
+
+            <ul>
+            <li>Confirm that the Audio Router session is enabled.</li>
+            <li>Confirm that the Audio Router driver and helper are installed.</li>
+            <li>Quit and reopen Discord to refresh its audio-device list.</li>
+            <li>Use Audio Router’s setup panel to repair or reinstall the driver if the virtual device remains unavailable.</li>
+            </ul>
+
+            <h3>The microphone works, but Safari is missing</h3>
+
+            <ul>
+            <li>Make sure Safari is running.</li>
+            <li>Play audio before opening Audio Router’s Sources list.</li>
+            <li>Close and reopen the Sources list to refresh it.</li>
+            <li>Check that Safari is not muted inside Audio Router.</li>
+            <li>Confirm that Safari’s source ports are connected to the Audio Router Channels.</li>
+            </ul>
+
+            <h3>Audio Router’s source meters move, but Discord receives nothing</h3>
+
+            <ul>
+            <li>Confirm that <strong>Discord Mix</strong> is selected as Discord’s Input Device.</li>
+            <li>Make sure the Audio Router session is enabled and unmuted.</li>
+            <li>Confirm that each source is connected to Channels 1 and 2.</li>
+            <li>Raise the session or source level gradually.</li>
+            </ul>
+
+            <h3>Your voice sounds delayed or echoed</h3>
+
+            <ul>
+            <li>Remove any monitor device from the Audio Router session.</li>
+            <li>Make sure Discord’s output is sent directly to your headphones.</li>
+            <li>Confirm that Discord itself has not been added as an Audio Router source.</li>
+            <li>Use headphones instead of speakers.</li>
+            </ul>
+
+            <h3>Safari sounds doubled</h3>
+
+            <ul>
+            <li>Make sure no Audio Router monitor device has been added.</li>
+            <li>Check that Safari is not being captured through another application or Discord screen-sharing route at the same time.</li>
+            <li>Use only one Safari audio path during the test.</li>
+            </ul>
+        </section>
+
+        <section aria-labelledby="final-configuration-heading">
+            <h2 id="final-configuration-heading">Final configuration</h2>
+
+            <h3>Audio Router</h3>
+
+            <ul>
+            <li>Session: <strong>Discord Mix</strong></li>
+            <li>Sources: <strong>Microphone and Safari</strong></li>
+            <li>Channels: <strong>Stereo</strong></li>
+            <li>Monitor: <strong>None</strong></li>
+            <li>Session status: <strong>Enabled and unmuted</strong></li>
+            </ul>
+
+            <h3>Discord</h3>
+
+            <ul>
+            <li>Input Device: <strong>Discord Mix</strong></li>
+            <li>Output Device: <strong>Headphones or headset</strong></li>
+            </ul>
+        </section>
+
+        <footer class="tutorial-footer">
+            <p>You can replace Safari with a compatible soundboard, music player, media player, browser, or another running Mac application. Add the application as an Audio Router source and balance it against your microphone before sending the mix into Discord.</p>
+        </footer>
+        </article>
+        </div>
+      </div>
+    </section>
+</main>
+
+<Footer />
+
+</AppsLayout>

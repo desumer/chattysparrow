@@ -1,0 +1,409 @@
+---
+import AppsLayout from "@layouts/AppsLayout.astro";
+import Header from "@components/audiorouter/Header.astro";
+import Footer from "@components/Footer.astro";
+import { withBase } from '@utils/paths';
+---
+
+<AppsLayout title="Chatty Sparrow - How to Send Processed Logic Pro Audio to Zoom on Mac" faviconPath={withBase("/favicons/audiorouter")} description="Route processed Logic Pro audio to Zoom on Mac using Audio Router on macOS.">
+
+<Header />
+
+<main>
+    <section id="tutorial" class="features section">
+      <div class="container section-title" data-aos="fade-up" data-aos-delay="100">
+        <div class="text-start">
+          <article class="tutorial">
+            <header>
+              <p class="tutorial-category">Audio Router Tutorial</p>
+
+              <h1>How to Send Processed Logic Pro Audio to Zoom on Mac</h1>
+
+              <p class="tutorial-introduction">
+                Use Audio Router to send a microphone, software instrument, backing
+                track, or complete Logic Pro mix into Zoom as a virtual microphone.
+                This lets Zoom participants hear audio after it has been processed by
+                Logic Pro plug-ins such as EQ and compression.
+              </p>
+            </header>
+
+            <aside class="tutorial-note" aria-labelledby="when-to-use-heading">
+              <br/>
+              <h2 id="when-to-use-heading">When should you use this setup?</h2>
+
+              <p>
+                You do not need Audio Router for an ordinary Zoom voice call. If you only
+                need to speak through an unprocessed microphone, select that microphone
+                directly in Zoom.
+              </p>
+
+              <p>Use this workflow when you want Zoom to receive:</p>
+
+              <ul>
+                <li>A microphone processed with Logic Pro plug-ins</li>
+                <li>EQ, compression, gating, reverb, or other effects</li>
+                <li>A software instrument or live instrument input</li>
+                <li>Music, backing tracks, or sound effects</li>
+                <li>Multiple Logic Pro tracks mixed together</li>
+                <li>The complete output of a Logic Pro project</li>
+              </ul>
+            </aside>
+
+            <section aria-labelledby="requirements-heading">
+              <h2 id="requirements-heading">What you’ll need</h2>
+
+              <ul>
+                <li>A Mac running macOS 15 or later</li>
+                <li>Audio Router installed and configured</li>
+                <li>Logic Pro</li>
+                <li>The Zoom desktop application</li>
+                <li>A microphone or audio interface</li>
+                <li>A headset or headphones</li>
+              </ul>
+            </section>
+
+            <section aria-labelledby="signal-flow-heading">
+              <h2 id="signal-flow-heading">How the signal flows</h2>
+
+              <pre aria-label="Logic Pro to Zoom audio signal flow">
+          <code>Microphone or instrument
+                    ↓
+                Logic Pro
+         EQ / compression / effects
+                    ↓
+               Audio Router
+                    ↓
+             Zoom microphone</code></pre>
+
+              <p>
+                Logic Pro processes the live input and sends its complete output to an
+                Audio Router virtual device. Zoom uses that device as its microphone.
+              </p>
+            </section>
+
+            <section aria-labelledby="logic-track-heading">
+              <h2 id="logic-track-heading">1. Create a microphone track in Logic Pro</h2>
+
+              <ol>
+                <li>Open <strong>Logic Pro</strong>.</li>
+                <li>Create a new <strong>Empty Project</strong>.</li>
+                <li>Select <strong>Audio</strong> as the new track type.</li>
+                <li>Select your microphone or audio interface as the input device.</li>
+                <li>
+                  Choose the appropriate mono input, commonly <strong>Input 1</strong>.
+                </li>
+                <li>Create the track.</li>
+                <li>
+                  Click the track’s <strong>R</strong> button to record-enable it.
+                </li>
+                <li>
+                  Speak into the microphone and confirm that the track meter responds.
+                </li>
+              </ol>
+
+              <aside class="tutorial-tip">
+                <p>
+                  You do not need to press Logic Pro’s main Record button. The track only
+                  needs to be record-enabled so it can receive the live microphone
+                  signal.
+                </p>
+              </aside>
+            </section>
+
+            <section aria-labelledby="processing-heading">
+              <h2 id="processing-heading">2. Add EQ and compression</h2>
+
+              <ol>
+                <li>Select the microphone track.</li>
+                <li>Find an empty <strong>Audio FX</strong> slot.</li>
+                <li>Add <strong>EQ → Channel EQ</strong>.</li>
+                <li>In the next Audio FX slot, add <strong>Dynamics → Compressor</strong>.</li>
+                <li>Use the mono versions when available.</li>
+                <li>Speak and confirm that the track meter continues to respond.</li>
+              </ol>
+
+              <pre aria-label="Logic Pro microphone processing order">
+          <code>Microphone
+              ↓
+          Channel EQ
+              ↓
+          Compressor
+              ↓
+          Logic Pro output</code></pre>
+
+              <p>
+                Default settings are sufficient for testing. You can adjust the EQ and
+                compressor after confirming that the complete route works.
+              </p>
+            </section>
+
+            <section aria-labelledby="router-session-heading">
+              <h2 id="router-session-heading">3. Create an Audio Router session</h2>
+
+              <ol>
+                <li>Open <strong>Audio Router</strong>.</li>
+                <li>
+                  Click the large <strong>+</strong> button at the bottom of the session
+                  sidebar.
+                </li>
+                <li>
+                  Rename the new session <strong>Logic to Zoom</strong>.
+                </li>
+                <li>
+                  Confirm that the session is enabled and its status indicator is green.
+                </li>
+                <li>Keep the default <strong>Pass-Through</strong> source.</li>
+                <li>
+                  Confirm that the Pass-Through source is connected to Channels 1 and 2.
+                </li>
+              </ol>
+
+              <pre aria-label="Audio Router channel connections">
+            <code>Pass-Through Left  → Channel 1
+            Pass-Through Right → Channel 2</code></pre>
+            </section>
+
+            <section aria-labelledby="logic-output-heading">
+              <h2 id="logic-output-heading">
+                4. Send Logic Pro’s output to Audio Router
+              </h2>
+
+              <ol>
+                <li>Return to Logic Pro.</li>
+                <li>Open <strong>Logic Pro → Settings → Audio</strong>.</li>
+                <li>Open the <strong>Devices</strong> section.</li>
+                <li>Set <strong>Output Device</strong> to <strong>Logic to Zoom</strong>.</li>
+                <li>Keep your microphone or audio interface selected as Logic Pro’s input device.</li>
+                <li>Apply the audio-device change if Logic Pro asks.</li>
+                <li>Return to the microphone track and keep it record-enabled.</li>
+                <li>Speak into the microphone.</li>
+                <li>Confirm that Audio Router’s Pass-Through and Channels meters respond.</li>
+              </ol>
+
+              <aside class="tutorial-note">
+                <p>
+                  In our test, enabling the track’s <strong>R</strong> button was
+                  sufficient to pass the microphone through Logic Pro. Depending on your
+                  Logic Pro monitoring settings, you may also need to enable the track’s <strong>I</strong> Input Monitoring button.
+                </p>
+              </aside>
+            </section>
+
+            <section aria-labelledby="zoom-heading">
+              <h2 id="zoom-heading">5. Select the Audio Router device in Zoom</h2>
+
+              <ol>
+                <li>Open the Zoom desktop application.</li>
+                <li>Open <strong>Settings → Audio</strong>.</li>
+                <li>Under <strong>Microphone</strong>, select <strong>Logic to Zoom</strong>.</li>
+                <li>Under <strong>Speaker</strong>, select your headset or headphones.</li>
+                <li>Start Zoom’s microphone test.</li>
+                <li>Speak into the microphone.</li>
+                <li>Confirm that Zoom’s microphone input meter responds and that the test playback contains your voice.</li>
+              </ol>
+
+              <div class="tutorial-settings-summary">
+                <h3>Recommended Zoom settings</h3>
+
+                <dl>
+                  <div>
+                    <dt>Microphone</dt>
+                    <dd>Logic to Zoom</dd>
+                  </div>
+
+                  <div>
+                    <dt>Speaker</dt>
+                    <dd>Your headset or headphones</dd>
+                  </div>
+                </dl>
+              </div>
+
+              <p>Do not select <strong>Logic to Zoom</strong> as Zoom’s speaker. Incoming Zoom audio should go directly to your headset.</p>
+            </section>
+
+            <section aria-labelledby="verify-heading">
+              <h2 id="verify-heading">6. Verify that Zoom is receiving Logic Pro</h2>
+
+              <p>Perform this short test to confirm that Zoom is not receiving the microphone through another path:</p>
+
+              <ol>
+                <li>Keep Zoom’s microphone test running.</li>
+                <li>Mute the microphone track in Logic Pro.</li>
+                <li>Speak into the microphone.</li>
+                <li>Confirm that Zoom’s input meter stops responding.</li>
+                <li>Unmute the Logic Pro track.</li>
+                <li>Speak again and confirm that Zoom’s meter responds.</li>
+              </ol>
+
+              <p>
+                If muting the Logic Pro track stops the Zoom signal, the microphone is
+                successfully passing through Logic Pro and its plug-in chain.
+              </p>
+
+              <p>
+                You can also bypass and re-enable Channel EQ or Compressor while testing.
+                The change heard in Zoom confirms that Logic Pro’s processed output is
+                reaching the call.
+              </p>
+            </section>
+
+            <section aria-labelledby="monitoring-heading">
+              <h2 id="monitoring-heading">7. Optional: Monitor the processed audio</h2>
+
+              <p>
+                Monitoring is not required for sending Logic Pro audio into Zoom. If you
+                want to hear the processed Logic Pro output yourself:
+              </p>
+
+              <ol>
+                <li>Open the <strong>Logic to Zoom</strong> Audio Router session.</li>
+                <li>Click the <span class="fs-5s"><i class="bi bi-plus-circle"></i></span> button beside <strong>Monitor</strong>.</li>
+                <li>Select your headset.</li>
+                <li>Confirm that Channels 1 and 2 connect to the headset’s left and right inputs.</li>
+                <li>Begin with the monitor level very low.</li>
+                <li>Raise the level gradually while speaking.</li>
+              </ol>
+
+              <aside class="tutorial-warning">
+                <p>
+                  <strong>Monitoring latency:</strong> Software monitoring may produce a short delay between speaking and hearing yourself. This can sound like an echo. If the delay is
+                  distracting, remove or mute the Audio Router monitor. Zoom will continue receiving the Logic Pro output.
+                </p>
+              </aside>
+
+              <p>
+                Always use headphones for live microphone monitoring. Speakers can allow monitored audio to re-enter the microphone and cause acoustic feedback.
+              </p>
+            </section>
+
+            <section aria-labelledby="level-heading">
+              <h2 id="level-heading">8. Adjust the microphone level</h2>
+
+              <p>If your Zoom recording sounds too quiet, adjust the level before it reaches Zoom:</p>
+
+              <ul>
+                <li>Raise the microphone track fader slightly in Logic Pro.</li>
+                <li>Adjust the compressor’s makeup or output gain.</li>
+                <li>If using an audio interface, check its physical input-gain control.</li>
+                <li>Watch the meters while speaking at your normal volume.</li>
+              </ul>
+
+              <p>
+                Avoid sustained red meter levels. Raising the signal too far can cause clipping and distortion that Zoom cannot repair.
+              </p>
+            </section>
+
+            <section aria-labelledby="recording-test-heading">
+              <h2 id="recording-test-heading">9. Make a Zoom test recording</h2>
+
+              <ol>
+                <li>Start a private Zoom meeting as the host.</li>
+                <li>Confirm that <strong>Logic to Zoom</strong> is still selected as the microphone.</li>
+                <li>In the meeting controls, choose <strong>Record</strong>. If it is not visible, open <strong>More (…) → Record</strong>.</li>
+                <li>Select <strong>Record to this Computer</strong>.</li>
+                <li>Speak normally for several seconds.</li>
+                <li>Bypass the compressor and speak again.</li>
+                <li>Re-enable the compressor and speak again.</li>
+                <li>Mute and unmute the Logic Pro track to verify the signal path.</li>
+                <li>Stop the recording and end the meeting.</li>
+                <li>Listen to the processed recording.</li>
+              </ol>
+
+              <p>Zoom normally stores computer recordings in the <strong>Documents/Zoom</strong> folder.</p>
+            </section>
+
+            <section aria-labelledby="troubleshooting-heading">
+              <h2 id="troubleshooting-heading">Troubleshooting</h2>
+
+              <h3>Logic Pro is not receiving the microphone</h3>
+
+              <ul>
+                <li>Confirm that the correct microphone input is selected.</li>
+                <li>Click the track’s <strong>R</strong> button.</li>
+                <li>If necessary, enable the track’s <strong>I</strong> Input Monitoring button.</li>
+                <li>Check that macOS has granted Logic Pro microphone permission.</li>
+              </ul>
+
+              <h3>Audio Router receives no signal from Logic Pro</h3>
+
+              <ul>
+                <li>Confirm that Logic Pro’s Output Device is <strong>Logic to Zoom</strong>.</li>
+                <li>Make sure the Logic Pro track is record-enabled and unmuted.</li>
+                <li>Confirm that Pass-Through is connected to Audio Router Channels 1 and 2.</li>
+                <li>Make sure the Audio Router session is enabled and unmuted.</li>
+              </ul>
+
+              <h3>Audio Router meters move, but Zoom receives nothing</h3>
+
+              <ul>
+                <li>Confirm that Zoom’s Microphone is set to <strong>Logic to Zoom</strong>.</li>
+                <li>Restart Zoom to refresh its audio-device list.</li>
+                <li>Check the Zoom microphone input level.</li>
+                <li>Confirm that the Logic Pro track is not muted.</li>
+              </ul>
+
+              <h3>Your voice sounds delayed in your headset</h3>
+
+              <ul>
+                <li>Remove or mute the Audio Router monitor.</li>
+                <li>Continue using Zoom with monitoring disabled.</li>
+                <li>If available, use direct hardware monitoring for lower latency, noting that direct monitoring normally plays the unprocessed microphone.</li>
+              </ul>
+
+              <h3>Your voice is too quiet</h3>
+
+              <ul>
+                <li>Raise the Logic Pro track fader gradually.</li>
+                <li>Adjust the compressor’s output gain.</li>
+                <li>Increase the microphone preamp gain if available.</li>
+                <li>Avoid clipping in Logic Pro and Audio Router.</li>
+              </ul>
+            </section>
+
+            <section aria-labelledby="final-configuration-heading">
+              <h2 id="final-configuration-heading">Final configuration</h2>
+
+              <h3>Logic Pro</h3>
+
+              <ul>
+                <li>Input Device: <strong>Your microphone or interface</strong></li>
+                <li>Output Device: <strong>Logic to Zoom</strong></li>
+                <li>Microphone track: <strong>Record-enabled and unmuted</strong></li>
+                <li>Audio FX: <strong>Channel EQ and Compressor</strong></li>
+              </ul>
+
+              <h3>Audio Router</h3>
+
+              <ul>
+                <li>Session: <strong>Logic to Zoom</strong></li>
+                <li>Source: <strong>Pass-Through</strong></li>
+                <li>Channels: <strong>Stereo</strong></li>
+                <li>Monitor: <strong>Optional headset monitoring</strong></li>
+                <li>Session status: <strong>Enabled and unmuted</strong></li>
+              </ul>
+
+              <h3>Zoom</h3>
+
+              <ul>
+                <li>Microphone: <strong>Logic to Zoom</strong></li>
+                <li>Speaker: <strong>Your headset or headphones</strong></li>
+              </ul>
+            </section>
+
+            <footer class="tutorial-footer">
+              <p>
+                This setup sends Logic Pro’s complete output into Zoom. In addition to a
+                processed microphone, you can use it to share software instruments,
+                backing tracks, live instrument inputs, sound effects, or a complete DAW
+                mix with meeting participants.
+              </p>
+            </footer>
+          </article>
+        </div>
+      </div>
+    </section>
+</main>
+
+<Footer />
+
+</AppsLayout>

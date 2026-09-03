@@ -3,13 +3,15 @@ import AppsLayout from "@layouts/AppsLayout.astro";
 import Header from "@components/audiorouter/Header.astro";
 import Hero from "@components/audiorouter/Hero.astro";
 import Portfolio from "@components/audiorouter/Portfolio.astro";
+import Tutorials from "@components/audiorouter/Tutorials.astro";
 import Features from "@components/audiorouter/Features.astro";
 import Contact from "@components/Contact.astro";
+import About from "@components/audiorouter/About.astro";
 import Footer from "@components/Footer.astro";
 import { withBase } from '@utils/paths';
 ---
 
-<AppsLayout title="Audio Router - Routing app for macOS" faviconPath={withBase("/favicons/audiorouter")}>
+<AppsLayout title="Audio Router - Routing app for macOS" faviconPath={withBase("/favicons/audiorouter")} description="Audio Router is a software application that allows you to route audio on macOS. It provides a simple and intuitive interface for managing audio inputs and outputs, making it easy to route audio between applications and devices.">
 
 <Header />
 
@@ -21,8 +23,11 @@ import { withBase } from '@utils/paths';
 
     <Features />
 
-    <Contact />
+    <Tutorials />
 
+    <Contact sectionColor=""/>
+
+    <About />
 </main>
 
 <Footer />

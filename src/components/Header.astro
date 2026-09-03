@@ -18,22 +18,9 @@ import { withBase } from '@utils/paths';
     <nav id="navmenu" class="navmenu">
       <ul>
         <li><a href={withBase("/#portfolio")} class="active"><i class="bi bi-house navicon"></i>Home</a></li>
-        <li class="dropdown"><a href={withBase("/apps")}><i class="bi bi-info-lg navicon"></i> <span>Apps</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
-          <ul>
-            <li><a href={withBase('/vudeck')}>VU Deck</a></li>
-            <li><a href={withBase('/audiogate')}>Audio Gate</a></li>
-            <li><a href={withBase('/audiorouter')}>Audio Router</a></li>
-          </ul>
-        </li>
-        <li class="dropdown"><a href={withBase("/help")}><i class="bi bi-info-lg navicon"></i> <span>Help</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
-          <ul>
-            <li><a href={withBase('/vudeck/help')}>VU Deck</a></li>
-            <li><a href={withBase('/audiogate/help')}>Audio Gate</a></li>
-            <li><a href={withBase('/audiorouter/help')}>Audio Router</a></li>
-          </ul>
-        </li>
+        <li><a href={withBase("/#gethelp")}><i class="bi bi-info-lg navicon"></i>User Guides</a></li>
         <li><a href={withBase("/#contact")}><i class="bi bi-envelope navicon"></i> Contact</a></li>
-        <li class="dropdown"><a href={withBase("/about")}><i class="bi bi-menu-button navicon"></i> <span>About</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+        <li class="dropdown"><a href={withBase("/#about")}><i class="bi bi-menu-button navicon"></i> <span>About</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
           <ul>
             <li><a href={withBase('/company')}>Company</a></li>
             <li><a href={withBase('/privacy')}>Privacy Policy</a></li>

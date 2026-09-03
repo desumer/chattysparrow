@@ -7,22 +7,28 @@ import { withBase } from '@utils/paths';
     <!-- Hero Section -->
     <section id="hero" class="hero section dark-background">
 
-      <img src={withBase("/assets/apps/assets/img/audiorouter/hero-bg.jpg")} alt="" data-aos="fade-in" class="">
+      <img src={withBase("/assets/apps/assets/img/audiorouter/hero-bg.jpg")} alt="Audio Router routing application for macOS" data-aos="fade-in" class="">
 
      <div class="container" data-aos="fade-up" data-aos-delay="100">
         <p class="fs-1">Audio Router</p>
         <p>Route <span class="typed" data-typed-items=" web and app audio as well as mics audio..."></span><span class="typed-cursor typed-cursor--blink" aria-hidden="true"></span><span class="typed-cursor typed-cursor--blink" aria-hidden="true"></span></p><br/>
-        <h1 class="fs-4">Route and mix audio from multiple input sources, or use the Pass-Through device to route audio between apps.</h1>
+        <h1 class="fs-4">Route and mix Mac audio from multiple input sources,<br/> or use the Pass-Through device to route audio between apps.</h1>
           <div class="justify-content-center mt-5">
           <div class="d-flex flex-column justify-content-center align-items text-center text-md-start" data-aos="fade-up">
             <p>Download for free
-              <span class="d-block fs-6 fw-lighter mt-1 border-0">&lpar;When Audio Router is used in Free Mode, some limitations apply.&rpar;</span>
+              <span class="d-block fs-6 fw-lighter mt-1 border-0">When Audio Router is used in Free Mode, after 10 minutes of continuous use, periodic noise is introduced into audio.</span>
             </p>
             <p class="mt-4">Get Audio Router for macOS.</p>
             <div class="button-row">
                 <DownloadButton />
                 <br/>
                 <a class="button" href={withBase("/audiorouter/release-notes/")}><small>Release Notes</small></a>
+            </div>
+            <div class="mt-4">
+              Signed and Notarized for macOS 15 or later.
+              <p class="fs-6 fw-lighter mt-1 border-0">
+                Audio Router is Developer ID signed and Notarized by Apple, ensuring a secure installation with macOS Gatekeeper.
+              </p>
             </div>
           </div>
         </div>

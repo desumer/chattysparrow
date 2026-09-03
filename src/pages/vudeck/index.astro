@@ -5,11 +5,12 @@ import Hero from "@components/vudeck/Hero.astro";
 import Portfolio from "@components/vudeck/Portfolio.astro";
 import Features from "@components/vudeck/Features.astro";
 import Contact from "@components/Contact.astro";
+import About from "@components/vudeck/About.astro";
 import Footer from "@components/Footer.astro";
 import { withBase } from '@utils/paths';
 ---
 
-<AppsLayout title="VU Deck - Analog Vu Meter, LED Spectrum" faviconPath={withBase("/favicons/vudeck")}>
+<AppsLayout title="VU Deck - Analog Vu Meter, LED Spectrum" faviconPath={withBase("/favicons/vudeck")} description="VU Deck is a macOS and Windows application that provides an analog, LED VU meter and LED spectrum (Windows only) visualizer for audio signals. It allows users to monitor audio levels in real-time, making it ideal for audio engineers, musicians, and enthusiasts who want to visualize their audio output.">
 
 <Header />
 
@@ -21,7 +22,24 @@ import { withBase } from '@utils/paths';
 
     <Features />
     
-    <Contact />
+    <section id="help" class="about section light-background">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>User Guides</h2>
+        <br>
+        <div class="container">
+          <p><a href={withBase("/vudeck/help/Mac/help")}><span>macOS</span></a></p>
+          <br>
+          <p><a href={withBase("/vudeck/help/Windows/help")}><span>Windows</span></a></p>
+        </div>
+      </div><!-- End Section Title -->
+
+    </section>
+
+    <Contact sectionColor="" />
+
+    <About />
 
 </main>
 
