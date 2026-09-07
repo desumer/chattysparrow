@@ -1,4 +1,7 @@
 ---
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const isIndex = Astro.url.pathname === '/';
+
 import { withBase } from '@utils/paths';
 
 interface Props {
@@ -23,6 +26,7 @@ const { title, description, verificationCode } = Astro.props;
 
   <meta name="description" content={description || ""}>
   
+  {isIndex && <link rel="canonical" href={canonicalURL} />}
   <link rel="sitemap" href="/sitemap-index.xml" />
   
   <!-- Favicons -->
