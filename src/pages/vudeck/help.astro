@@ -5,7 +5,7 @@ import Footer from "@components/Footer.astro";
 import { withBase } from '@utils/paths';
 ---
 
-<AppsLayout title="VU Deck - macOS, Windows Help" faviconPath={withBase("/favicons/vudeck")} description="Help and support for VU Deck, a macOS and Windows application for audio visualization.">
+<AppsLayout title="VU Deck - macOS, Windows Help" faviconPath={withBase("/favicons/vudeck/")} description="Help and support for VU Deck, a macOS and Windows application for audio visualization.">
 
 <Header />
 
@@ -18,9 +18,9 @@ import { withBase } from '@utils/paths';
         <h2>Help</h2>
         <br>
         <div class="container">
-          <p><a href={withBase("/vudeck/help/Mac/help")}><span>macOS</span></a></p>
+          <p><a href={withBase("/vudeck/help/Mac/help/")}><span>macOS</span></a></p>
           <br>
-          <p><a href={withBase("/vudeck/help/Windows/help")}><span>Windows</span></a></p>
+          <p><a href={withBase("/vudeck/help/Windows/help/")}><span>Windows</span></a></p>
         </div>
       </div><!-- End Section Title -->
 
