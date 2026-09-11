@@ -34,7 +34,7 @@ h2{font-size:1.65rem;color:var(--blue);margin:0 0 .8rem}h3{font-size:1.1rem;colo
   <main>
     <section class="guide-page help-guide-cover" id="overview"><div class="page-label">Section 1 of 9</div>
       <p class="kicker">Product help / macOS</p><h1>VU Deck</h1>
-      <p class="lead">Monitor your Mac's audio with analog and LED VU meters. Capture selected apps and microphones through System Audio, or monitor an installed virtual audio device.</p>
+      <p class="lead">Monitor your Mac's audio with analog and LED VU meters or spectrum display. Capture selected apps and microphones through System Audio, or monitor an installed virtual audio device.</p>
       <nav class="topic-grid" aria-label="Guide topics">
         <a href="#get-started"><b>Getting Started</b><small>Meet the controls</small></a><a href="#sys-req"><b>System Requirements</b><small>Compatibility and permissions</small></a>
         <a href="#installation"><b>Installation</b><small>Install from the App Store</small></a><a href="#first-run"><b>First Run</b><small>Automatic System Audio setup</small></a>
@@ -44,15 +44,22 @@ h2{font-size:1.65rem;color:var(--blue);margin:0 0 .8rem}h3{font-size:1.1rem;colo
     </section>
 
     <section class="guide-page" id="get-started"><div class="page-label">Section 2 of 9</div><h2>Getting Started</h2>
-      <p>VU Deck displays the level of your selected Mac audio using analog meters, with an optional LED meter.</p>
+      <p>VU Deck displays the level of your selected Mac audio using analog meters and spectrum display, with an optional LED meter.</p>
       <img src={mainViewScreenshot.src} alt="VU Deck main window showing the Audio Source button" loading="lazy" />
-      <ul><li><strong>Power</strong> starts and stops monitoring.</li><li><strong>Audio Source</strong> opens the source list.</li><li><strong>Shutdown</strong> closes VU Deck.</li></ul>
-      <p>Move the window by dragging an empty area. Its minimum size keeps every control visible.</p><a class="back" href="#top">Back to index ↑</a>
+      <ul>
+        <li><strong>Power</strong> starts and stops monitoring.</li>
+        <li><strong>Audio Source</strong> opens the audio source list.</li>
+        <li><strong>Classic - Spectrum</strong> Switches between the classic and spectrum view.</li>
+        <li><strong>Shutdown</strong> closes VU Deck.</li>
+      </ul>
+      <p>Move the window by clicking and dragging an empty area on the VU Deck panel. Its minimum size keeps every control visible.</p><a class="back" href="#top">Back to index ↑</a>
     </section>
 
     <section class="guide-page" id="sys-req"><div class="page-label">Section 3 of 9</div><h2>System Requirements</h2>
       <ul><li>macOS 15.0 or later.</li><li>Intel or Apple silicon Mac.</li><li>At least 2 GB of memory recommended.</li><li>Permission to capture system audio.</li><li>Microphone permission when a hardware input is selected.</li></ul>
-      <p>A third-party virtual audio device is optional. VU Deck's built-in System Audio source works without installing one.</p><a class="back" href="#top">Back to index ↑</a>
+      <p>A third-party virtual audio device is optional. VU Deck's built-in System Audio source works without installing one.</p>
+      <p>Make sure your system has sufficient resources to run VU Deck smoothly since it's based on real-time audio processing with intense math calculations therefore may consume significant CPU and memory resources.</p>
+      <a class="back" href="#top">Back to index ↑</a>
     </section>
 
     <section class="guide-page" id="installation"><div class="page-label">Section 4 of 9</div><h2>Installation</h2>
@@ -68,9 +75,16 @@ h2{font-size:1.65rem;color:var(--blue);margin:0 0 .8rem}h3{font-size:1.1rem;colo
     </section>
 
     <section class="guide-page" id="general-settings"><div class="page-label">Section 6 of 9</div><h2>General Settings</h2>
-      <p>Open <strong>VU Deck → Settings…</strong> from the macOS menu bar. Settings displays the selected Audio Source and lets you customize the meter.</p>
+      <p>Open <strong>VU Deck → Settings…</strong> from the macOS menu bar. Settings displays the selected Audio Source and lets you customize the look and behavior of the meters.</p>
       <img src={generalSettingsScreenshot.src} alt="General Settings window" loading="lazy" />
-      <ul><li><strong>Audio Source</strong> is read-only here. Change it from the main-window button or <strong>VU Deck → Audio Sources…</strong>.</li><li><strong>Meter Style</strong> chooses Standard (RMS) or Peak response.</li><li><strong>Meter Adjustment</strong> adjusts Standard meter movement.</li><li><strong>VU Background, Needle Color, and Face Panel Color</strong> customize the display.</li><li><strong>LED VU Meter, Keep on Top, Hide Logo, and Mac Window</strong> control presentation.</li></ul>
+      <ul>
+        <li><strong>Audio Source</strong> is read-only here. Change it from the main-window button or <strong>VU Deck → Audio Sources…</strong>.</li>
+        <li><strong>Meter Style</strong> chooses Standard (RMS) or Peak response.</li>
+        <li><strong>0 VU Reference Meter Adjustment</strong> adjusts VU level movement for Standard (RMS).</li>
+        <li><strong>VU Background, Needle Color, and Face Panel Color</strong> customize the display.</li>
+        <li><strong>Spectrum Colors, Spectrum Peak Hold, Peak Hold Color (only available if Spectrum Peak Hold is selected)</strong> customize the spectrum display.</li>
+        <li><strong>LED VU Meter, Keep on Top, Hide Logo, and Mac Window</strong> control presentation.</li>
+      </ul>
       <p>Use <strong>Save &amp; Close</strong> to keep changes. Closing without saving discards them.</p><a class="back" href="#top">Back to index ↑</a>
     </section>
 
