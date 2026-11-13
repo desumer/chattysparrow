@@ -1,77 +1,41 @@
 ---
-import MainLayout from "@layouts/MainLayout.astro";
-import Header from "@components/Header.astro";
-import Portfolio from "@components/Portfolio.astro";
-import About from "@components/About.astro";
+import AppsLayout from "@layouts/AppsLayout.astro";
+import Header from "@components/vudeck/Header.astro";
+import Hero from "@components/vudeck/Hero.astro";
+import Portfolio from "@components/vudeck/Portfolio.astro";
+import Features from "@components/vudeck/Features.astro";
 import Contact from "@components/Contact.astro";
+import About from "@components/vudeck/About.astro";
 import Footer from "@components/Footer.astro";
 import { withBase } from '@utils/paths';
 ---
 
-<MainLayout title="Chatty Sparrow - Audio Apps for macOS and Windows" description="Audio capture, routing, and visualization applications for macOS, Windows." verificationCode="A2UXLeMr_n5zGUw2iOGKeHFjPgS2hm-DaRECch2KYyk">
+<AppsLayout title="VU Deck - Analog VU Meter, LED Spectrum" faviconPath={withBase("/favicons/vudeck/")} description="VU Deck is a macOS and Windows application that provides an analog, LED VU meter and LED spectrum (Windows only) visualizer for audio signals. It allows users to monitor audio levels in real-time, making it ideal for audio engineers, musicians, and enthusiasts who want to visualize their audio output.">
 
 <Header />
 
 <main>
 
+    <Hero />
+
     <Portfolio />
 
-    <section id="gethelp" class="services section">
+    <Features />
+    
+    <section id="help" class="about section light-background">
 
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
-        <h2>Learn How to Use Our Apps</h2>
+        <h2>User Guides</h2>
         <br>
-          <div class="row text-center align-items-start g-4">
-
-              <div class="col-md-4">
-                  <img
-                      src={withBase("/assets/apps/assets/img/vudeck/logo-fill.png")}
-                      alt="VU Deck Logo"
-                      class="img-fluid rounded-circle mb-3"
-                      style="max-width: 90px;"
-                  >
-
-                  <p class="mb-1">
-                      <a href={withBase("/vudeck/help/Mac/help/")}>VU Deck (macOS)</a>
-                  </p>
-                  <p class="mb-0">
-                      <a href={withBase("/vudeck/help/Windows/help/")}>VU Deck (Windows)</a>
-                  </p>
-              </div>
-
-              <div class="col-md-4">
-                  <img
-                      src={withBase("/assets/apps/assets/img/audiogate/logo-fill.png")}
-                      alt="Audio Gate Logo"
-                      class="img-fluid rounded-circle mb-3"
-                      style="max-width: 100px;"
-                  >
-
-                  <p class="mb-0">
-                      <a href={withBase("/audiogate/help/")}>Audio Gate</a>
-                  </p>
-              </div>
-
-              <div class="col-md-4">
-                  <img
-                      src={withBase("/assets/apps/assets/img/audiorouter/logo-Light.png")}
-                      alt="Audio Router Logo"
-                      class="img-fluid rounded-circle mb-3"
-                      style="max-width: 100px;"
-                  >
-
-                  <p class="mb-0">
-                      <a href={withBase("/audiorouter/help/")}>Audio Router</a>
-                  </p>
-              </div>
-
-          </div>      
+        <div class="container">
+          <p><a href={withBase("/vudeck/help/Windows/help/")}><span>Windows</span></a></p>
+        </div>
       </div><!-- End Section Title -->
 
     </section>
 
-    <Contact />
+    <Contact sectionColor="" />
 
     <About />
 
@@ -90,4 +54,4 @@ document.getElementById("email-link")?.addEventListener("click",(e)=>{
 });
 </script>
 
-</MainLayout>
+</AppsLayout>
